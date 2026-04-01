@@ -72,14 +72,14 @@ export default function World() {
             style={{ y: contentY }}
             className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 sm:pb-14"
           >
-            <div className="game-panel max-w-xl rounded-[1.75rem] p-6">
-              <div className="mb-3 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+            <div className="max-w-2xl">
+              <div className="mb-4 inline-flex rounded-full border border-cyan-300/35 bg-slate-950/45 px-3 py-1 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100">
                 Living World
               </div>
-              <h3 className="mb-3 text-3xl font-bold text-white">
+              <h3 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
                 Explore a map that breathes with the story
               </h3>
-              <p className="text-sm leading-7 text-gray-200 sm:text-base">
+              <p className="max-w-2xl text-base font-medium leading-8 text-slate-100 sm:text-lg sm:leading-9">
                 Vast biomes, hidden paths, and cinematic scale make OmniTech feel
                 larger than a static showcase. The section now lets the world take
                 over the viewport before handing control back to the rest of the
@@ -90,23 +90,25 @@ export default function World() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 mx-auto -mt-28 max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto -mt-24 max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6 sm:grid-cols-4"
+          className="grid grid-cols-2 gap-5 sm:grid-cols-4"
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="game-panel-soft rounded-2xl p-6 text-center transition-colors hover:border-cyan-300/30"
+              className="rounded-2xl border border-cyan-300/18 bg-slate-950/35 p-5 text-center backdrop-blur-sm transition-colors hover:border-cyan-300/30"
             >
-              <div className="mb-2 text-3xl font-bold text-primary">
+              <div className="mb-1 text-4xl font-black text-white sm:text-[2.6rem]">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100/86">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>

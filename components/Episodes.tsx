@@ -114,7 +114,7 @@ export default function Episodes() {
                   </p>
 
                   <div className="mt-auto pt-10">
-                    <button className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-100 transition-colors hover:text-white">
+                    <button className="relative inline-flex items-center gap-2 rounded-[1rem] border border-yellow-200/70 bg-[linear-gradient(180deg,#ffe578_0%,#f4c63c_42%,#d59613_100%)] px-4 py-2 text-sm font-black text-[#2f1800] shadow-[inset_0_-2px_0_rgba(140,90,5,0.78),0_12px_24px_rgba(213,150,19,0.24)] transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[0.8rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.04))] hover:-translate-y-0.5 hover:brightness-105">
                       Explore chapter
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>

@@ -51,13 +51,13 @@ export default function Header({ isVisible = true }: HeaderProps) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="relative h-12 w-12 overflow-hidden transition-transform group-hover:scale-110">
+          <div className="relative h-12 w-12 overflow-hidden bg-transparent transition-transform group-hover:scale-110">
             <Image
               src="/omnitech-nav-icon.png"
               alt="OmniTech icon"
               fill
               sizes="48px"
-              className="object-contain drop-shadow-[0_0_24px_rgba(2,167,221,0.28)]"
+              className="object-contain"
             />
           </div>
         </Link>
@@ -86,7 +86,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="rounded-xl border border-cyan-400/15 bg-white/5 p-2 text-slate-100 transition-colors hover:bg-cyan-400/10 md:hidden"
+            className="relative rounded-[1rem] border border-cyan-300/45 bg-[linear-gradient(180deg,#1fc3f0_0%,#02A7DD_34%,#015FBF_100%)] p-2 text-white shadow-[inset_0_-2px_0_rgba(1,64,125,0.85),0_10px_20px_rgba(1,95,191,0.24)] transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[0.8rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.05))] hover:-translate-y-0.5 hover:brightness-110 md:hidden"
           >
             {isMobileMenuOpen ? (
               <X className="w-5 h-5" />

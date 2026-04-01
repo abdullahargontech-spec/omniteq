@@ -89,7 +89,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
             animate={{ opacity: hasEntered ? 1 : 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             onClick={() => setIsMuted(!isMuted)}
-            className="absolute top-20 right-4 z-20 rounded-xl border border-cyan-400/20 bg-slate-950/45 p-3 backdrop-blur-xl transition-all hover:border-cyan-300/40 hover:bg-slate-950/70 sm:top-24 sm:right-8"
+            className="fixed top-5 right-4 z-[70] rounded-[1rem] border border-cyan-300/45 bg-[linear-gradient(180deg,#1fc3f0_0%,#02A7DD_34%,#015FBF_100%)] p-3 text-white shadow-[inset_0_-2px_0_rgba(1,64,125,0.85),0_12px_24px_rgba(1,95,191,0.24)] backdrop-blur-xl transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[0.8rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.05))] hover:-translate-y-0.5 hover:brightness-110 sm:top-6 sm:right-6"
             title={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted ? (
@@ -173,7 +173,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               repeatType: 'reverse',
             }}
             onClick={scrollToNextSection}
-              className="group absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full border border-cyan-400/15 bg-slate-950/25 px-4 py-3 backdrop-blur-md"
+            className="group absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 rounded-[1.1rem] border border-cyan-300/40 bg-[linear-gradient(180deg,rgba(24,50,79,0.96)_0%,rgba(9,23,40,0.98)_100%)] px-4 py-3 text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_12px_24px_rgba(1,95,191,0.18)] backdrop-blur-md transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[38%] before:rounded-[0.9rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.03))] hover:-translate-x-1/2 hover:-translate-y-0.5 hover:brightness-110"
             >
             <span className="text-xs font-medium tracking-[0.08em] text-slate-300/75 transition-colors group-hover:text-cyan-100">
               Scroll to explore

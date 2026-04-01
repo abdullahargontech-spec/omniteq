@@ -5,29 +5,38 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold tracking-[0.01em] transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "relative isolate inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-[1.05rem] border text-center text-sm font-black tracking-[0.01em] text-white transition-all duration-200 ease-out outline-none before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[42%] before:rounded-[0.9rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0.06))] before:opacity-90 disabled:pointer-events-none disabled:opacity-45 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 focus-visible:ring-4 focus-visible:ring-cyan-300/35 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive active:translate-y-[2px] active:shadow-none",
   {
     variants: {
       variant: {
         default:
-          'border border-cyan-300/30 bg-[linear-gradient(135deg,#02A7DD_0%,#015FBF_100%)] text-white shadow-[0_14px_36px_rgba(1,95,191,0.35),0_0_22px_rgba(2,167,221,0.22)] hover:scale-[1.02] hover:shadow-[0_18px_44px_rgba(1,95,191,0.42),0_0_30px_rgba(2,167,221,0.28)]',
-        destructive:
-          'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        outline:
-          'border border-cyan-400/25 bg-white/5 text-cyan-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] hover:border-cyan-300/50 hover:bg-cyan-400/10 hover:text-white dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+          'border-cyan-300/65 bg-[linear-gradient(180deg,#1fc3f0_0%,#02A7DD_34%,#015FBF_100%)] shadow-[inset_0_-3px_0_rgba(1,64,125,0.85),0_14px_28px_rgba(1,95,191,0.34)] hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[inset_0_-3px_0_rgba(1,64,125,0.85),0_18px_32px_rgba(1,95,191,0.4),0_0_24px_rgba(2,167,221,0.18)]',
         secondary:
-          'border border-white/8 bg-secondary text-secondary-foreground hover:bg-secondary/80',
+          'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(25,39,61,0.96)_0%,rgba(12,22,38,0.98)_100%)] text-cyan-100 shadow-[inset_0_-3px_0_rgba(4,10,20,0.9),0_12px_24px_rgba(0,0,0,0.22)] hover:-translate-y-0.5 hover:border-cyan-300/55 hover:bg-[linear-gradient(180deg,rgba(30,50,78,0.96)_0%,rgba(12,22,38,0.98)_100%)] hover:text-white',
+        success:
+          'border-lime-200/70 bg-[linear-gradient(180deg,#b6ff47_0%,#7de828_45%,#49b913_100%)] text-[#0b2204] shadow-[inset_0_-3px_0_rgba(44,106,13,0.8),0_14px_28px_rgba(73,185,19,0.26)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[inset_0_-3px_0_rgba(44,106,13,0.8),0_18px_32px_rgba(73,185,19,0.32)]',
+        featured:
+          'border-yellow-200/70 bg-[linear-gradient(180deg,#ffe578_0%,#f4c63c_42%,#d59613_100%)] text-[#2f1800] shadow-[inset_0_-3px_0_rgba(140,90,5,0.78),0_14px_30px_rgba(213,150,19,0.28)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[inset_0_-3px_0_rgba(140,90,5,0.78),0_18px_34px_rgba(213,150,19,0.34)]',
+        special:
+          'border-orange-200/70 bg-[linear-gradient(180deg,#ffcb72_0%,#f39d2d_42%,#d36c0f_100%)] text-[#2b1404] shadow-[inset_0_-3px_0_rgba(122,57,3,0.82),0_14px_30px_rgba(211,108,15,0.28)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[inset_0_-3px_0_rgba(122,57,3,0.82),0_18px_34px_rgba(211,108,15,0.34)]',
+        destructive:
+          'border-red-200/60 bg-[linear-gradient(180deg,#ff8f8f_0%,#ef5350_40%,#c62828_100%)] text-white shadow-[inset_0_-3px_0_rgba(115,19,19,0.8),0_14px_28px_rgba(198,40,40,0.28)] hover:-translate-y-0.5',
+        outline:
+          'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(15,28,46,0.95)_0%,rgba(8,18,31,0.98)_100%)] text-cyan-100 shadow-[inset_0_-3px_0_rgba(4,10,20,0.9),0_12px_24px_rgba(0,0,0,0.24)] hover:-translate-y-0.5 hover:border-cyan-300/55 hover:bg-[linear-gradient(180deg,rgba(18,38,64,0.95)_0%,rgba(8,18,31,0.98)_100%)] hover:text-white dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
         ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'border-transparent bg-transparent text-cyan-100/85 shadow-none before:hidden after:hidden hover:text-white',
+        link: 'border-transparent bg-transparent text-primary underline-offset-4 shadow-none before:hidden after:hidden hover:underline',
+        tag:
+          'rounded-[0.9rem] border-cyan-300/55 bg-[linear-gradient(180deg,#14b5e6_0%,#0c92d1_45%,#0a6fb8_100%)] text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.82),0_10px_20px_rgba(1,95,191,0.26)] hover:-translate-y-0.5 hover:brightness-110',
       },
       size: {
-        default: 'h-10 px-5 py-2.5 has-[>svg]:px-4',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-12 rounded-xl px-7 has-[>svg]:px-5',
-        icon: 'size-9',
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-10',
+        default: 'h-11 px-5 py-2.5 has-[>svg]:px-4',
+        sm: 'h-9 gap-1.5 px-3.5 text-[0.82rem] has-[>svg]:px-3',
+        lg: 'h-13 px-7 text-base has-[>svg]:px-5',
+        icon: 'size-11 rounded-[1rem] px-0',
+        'icon-sm': 'size-9 rounded-[0.9rem] px-0',
+        'icon-lg': 'size-13 rounded-[1.1rem] px-0',
+        tag: 'h-8 px-3 text-[0.78rem] has-[>svg]:px-2.5',
       },
     },
     defaultVariants: {

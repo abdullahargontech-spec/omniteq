@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 const characters = [
   {
@@ -11,8 +10,7 @@ const characters = [
     role: 'The Explorer',
     description:
       'Brave and adventurous, Nova leads the charge into new worlds.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/main%20%283%29.jpg-srOLbU50j1vHrQ28M1SQWBsFo2HQvD.jpeg',
+    video: '/characters/nova.mp4',
     aura: 'from-orange-400/35 via-amber-500/20 to-transparent',
     edge: 'border-orange-400/40',
   },
@@ -22,69 +20,63 @@ const characters = [
     role: 'The Tech Genius',
     description:
       'Sharp-minded and tech-savvy, Lilly unlocks the secrets of OmniTech.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lilly_PNG.jpg-fawNqozALd0PT7eSFJno425H1MI45V.jpeg',
+    video: '/characters/lilly.mp4',
     aura: 'from-lime-300/35 via-green-500/20 to-transparent',
     edge: 'border-lime-400/40',
   },
   {
     id: 3,
-    name: 'Iris',
-    role: 'The Optimist',
-    description:
-      'Radiating positive energy, Iris brings joy to every challenge.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Main%20%281%29.jpg-RJ66XD9sdhC1hfsB5kVuwb8m55YfYy.jpeg',
-    aura: 'from-pink-400/35 via-fuchsia-500/20 to-transparent',
-    edge: 'border-pink-400/40',
-  },
-  {
-    id: 4,
     name: 'Emma',
     role: 'The Scholar',
     description:
       'Curious and intelligent, Emma masters knowledge and wisdom.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/emma01.jpg-xqvUCFnr2huRnIr8setAErldBMoDub.jpeg',
+    video: '/characters/emma.mp4',
     aura: 'from-cyan-300/35 via-teal-500/20 to-transparent',
     edge: 'border-cyan-400/40',
   },
   {
-    id: 5,
-    name: 'Kai',
-    role: 'The Strategist',
-    description:
-      'Composed and thoughtful, Kai plans every move carefully.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1.jpg-qwcgA8czSriXVgYvpgr90dumPBJmzA.jpeg',
-    aura: 'from-emerald-300/35 via-green-500/20 to-transparent',
-    edge: 'border-emerald-400/40',
-  },
-  {
-    id: 6,
+    id: 4,
     name: 'James',
     role: 'The Grounded One',
     description:
       'Practical and reliable, James keeps everyone on track.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/James_Main.jpg-yqlfDyDzje0HdImBvJDmg2qTKXr7Bw.jpeg',
+    video: '/characters/james.mp4',
     aura: 'from-slate-300/30 via-slate-500/20 to-transparent',
     edge: 'border-slate-300/30',
   },
   {
-    id: 7,
-    name: 'Zara',
-    role: 'The Cheerleader',
+    id: 5,
+    name: 'Alex',
+    role: 'The Vanguard',
     description:
-      'Playful and energetic, Zara spreads enthusiasm everywhere.',
-    image:
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Main%20%282%29.jpg-Isszh848Fx3CzXFxnjlQHLtfEiSKPh.jpeg',
+      'Bold and quick to move, Alex turns momentum into advantage.',
+    video: '/characters/alex.mp4',
+    aura: 'from-pink-400/35 via-fuchsia-500/20 to-transparent',
+    edge: 'border-pink-400/40',
+  },
+  {
+    id: 6,
+    name: 'Henry',
+    role: 'The Strategist',
+    description:
+      'Measured and calculating, Henry sees the path before the battle starts.',
+    video: '/characters/henry.mp4',
+    aura: 'from-emerald-300/35 via-green-500/20 to-transparent',
+    edge: 'border-emerald-400/40',
+  },
+  {
+    id: 7,
+    name: 'Zoe',
+    role: 'The Spark',
+    description:
+      'Fast, expressive, and energetic, Zoe brings urgency to every encounter.',
+    video: '/characters/zoe.mp4',
     aura: 'from-amber-300/35 via-orange-500/20 to-transparent',
     edge: 'border-amber-400/40',
   },
 ]
 
-const AUTOPLAY_MS = 3200
+const AUTOPLAY_MS = 10000
 export default function Characters() {
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -101,15 +93,15 @@ export default function Characters() {
   return (
     <section
       id="characters"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-18"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[90rem]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 text-center lg:mb-12"
         >
           <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
             Meet the Champions
@@ -121,7 +113,7 @@ export default function Characters() {
           </p>
         </motion.div>
 
-        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -129,7 +121,7 @@ export default function Characters() {
             viewport={{ once: true }}
             className="relative mx-auto w-full max-w-[48rem]"
           >
-            <div className="absolute left-1/2 top-14 h-[26rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(2,167,221,0.18),_rgba(2,167,221,0.04)_40%,_transparent_72%)] blur-3xl" />
+            <div className="absolute left-1/2 top-10 h-[20rem] w-[26rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(2,167,221,0.18),_rgba(2,167,221,0.04)_40%,_transparent_72%)] blur-3xl" />
 
             <motion.div
               key={activeCharacter.id}
@@ -141,32 +133,25 @@ export default function Characters() {
               <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-br ${activeCharacter.aura} opacity-95 blur-2xl`} />
               <div className="relative overflow-hidden rounded-[2.5rem]">
                 <div className={`absolute inset-0 bg-gradient-to-b ${activeCharacter.aura}`} />
-                <div className="relative h-[34rem] sm:h-[40rem] lg:h-[44rem]">
-                  <Image
-                    src={activeCharacter.image}
-                    alt={activeCharacter.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 720px"
-                    className="object-cover object-top"
-                    priority
+                <div className="relative h-[23rem] sm:h-[28rem] lg:h-[31rem]">
+                  <video
+                    key={activeCharacter.id}
+                    src={activeCharacter.video}
+                    className="h-full w-full object-cover object-top"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-label={`${activeCharacter.name} character video`}
+                    disablePictureInPicture
                   />
                 </div>
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.01)_18%,rgba(0,0,0,0)_45%)]" />
-                <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#070c17] via-[#070c17]/72 to-transparent sm:w-36" />
-                <div className="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-[#070c17] via-[#070c17]/72 to-transparent sm:w-36" />
-                <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[#070c17] via-[#070c17]/86 via-38% to-transparent" />
-                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#070c17]/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <div className="mb-3 inline-flex rounded-full border border-cyan-300/25 bg-slate-950/55 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-cyan-100">
-                    Featured Champion
-                  </div>
-                  <h3 className="text-4xl font-bold text-white sm:text-5xl">
-                    {activeCharacter.name}
-                  </h3>
-                  <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary/90">
-                    {activeCharacter.role}
-                  </p>
-                </div>
+                <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#070c17] via-[#070c17]/72 to-transparent sm:w-28" />
+                <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#070c17] via-[#070c17]/72 to-transparent sm:w-28" />
+                <div className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#070c17] via-[#070c17]/86 via-38% to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#070c17]/40 to-transparent" />
               </div>
             </motion.div>
           </motion.div>
@@ -176,7 +161,7 @@ export default function Characters() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="game-panel relative rounded-[2rem] p-8"
+            className="game-panel relative rounded-[2rem] p-6 lg:p-7"
           >
             <div
               className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${activeCharacter.aura} opacity-80`}
@@ -185,13 +170,13 @@ export default function Characters() {
               <div className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
                 Spotlight Character
               </div>
-              <h3 className="mb-2 text-4xl font-bold text-white">
+              <h3 className="mb-2 text-3xl font-bold text-white lg:text-4xl">
                 {activeCharacter.name}
               </h3>
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-primary/85">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary/85 sm:text-sm">
                 {activeCharacter.role}
               </p>
-              <p className="max-w-xl text-base leading-7 text-gray-300">
+              <p className="max-w-xl text-sm leading-6 text-gray-300 sm:text-base sm:leading-7">
                 {activeCharacter.description}
               </p>
             </div>
@@ -203,9 +188,9 @@ export default function Characters() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.1 }}
           viewport={{ once: true }}
-          className="game-panel-soft mt-10 rounded-[1.75rem] p-4 sm:p-5"
+          className="game-panel-soft mt-6 rounded-[1.5rem] p-3 sm:mt-7 sm:p-4"
         >
-          <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="mb-3 flex items-center justify-between gap-4">
             <div className="text-xs font-semibold uppercase tracking-[0.26em] text-cyan-100/80">
               Character Roster
             </div>
@@ -214,36 +199,40 @@ export default function Characters() {
             </div>
           </div>
 
-          <div className="overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex min-w-max gap-3">
+          <div className="pb-2">
+            <div className="grid gap-2.5 md:grid-cols-4 xl:grid-cols-7">
               {characters.map((character, index) => (
                 <button
                   key={character.id}
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Show ${character.name}`}
-                  className={`group relative flex min-w-[12rem] items-center gap-3 overflow-hidden rounded-[1.25rem] border px-3 py-3 text-left transition-all duration-300 ${
+                  className={`group relative flex items-center gap-2.5 overflow-hidden rounded-[1.35rem] border px-3 py-2.5 text-left font-black transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[1.1rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.05))] ${
                     index === activeIndex
-                      ? 'border-cyan-300/40 bg-[linear-gradient(135deg,rgba(2,167,221,0.18)_0%,rgba(1,95,191,0.26)_100%)] shadow-[0_12px_36px_rgba(1,95,191,0.25)]'
-                      : 'border-white/10 bg-slate-950/38 hover:border-cyan-300/25 hover:bg-slate-950/60'
+                      ? 'border-lime-200/70 bg-[linear-gradient(180deg,#b6ff47_0%,#7de828_45%,#49b913_100%)] text-[#0b2204] shadow-[inset_0_-2px_0_rgba(44,106,13,0.82),0_12px_24px_rgba(73,185,19,0.24)]'
+                      : 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(24,50,79,0.92)_0%,rgba(9,23,40,0.96)_100%)] text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_10px_20px_rgba(1,95,191,0.18)] hover:-translate-y-0.5 hover:brightness-110'
                   }`}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
-                    <Image
-                      src={character.image}
-                      alt={character.name}
-                      fill
-                      sizes="48px"
-                      className="object-cover object-top"
+                  <div className={`absolute inset-0 rounded-[1.35rem] bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg">
+                    <video
+                      src={character.video}
+                      className="h-full w-full object-cover object-top"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      aria-hidden="true"
+                      disablePictureInPicture
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#070c17]/55 to-transparent" />
                   </div>
                   <div className="relative min-w-0">
-                    <div className="truncate text-sm font-semibold text-white">
+                    <div className="truncate text-sm">
                       {character.name}
                     </div>
-                    <div className="truncate text-[11px] uppercase tracking-[0.18em] text-cyan-100/78">
+                    <div className={`truncate text-[10px] uppercase tracking-[0.16em] ${index === activeIndex ? 'text-[#214b08]' : 'text-cyan-100/78'}`}>
                       {character.role}
                     </div>
                   </div>
