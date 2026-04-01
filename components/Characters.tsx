@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const characters = [
   {
@@ -11,6 +12,7 @@ const characters = [
     description:
       'Brave and adventurous, Nova leads the charge into new worlds.',
     video: '/characters/nova.mp4',
+    thumbnail: '/characters/nova.jpeg',
     aura: 'from-orange-400/35 via-amber-500/20 to-transparent',
     edge: 'border-orange-400/40',
   },
@@ -21,6 +23,7 @@ const characters = [
     description:
       'Sharp-minded and tech-savvy, Lilly unlocks the secrets of OmniTech.',
     video: '/characters/lilly.mp4',
+    thumbnail: '/characters/lilly.jpeg',
     aura: 'from-lime-300/35 via-green-500/20 to-transparent',
     edge: 'border-lime-400/40',
   },
@@ -31,6 +34,7 @@ const characters = [
     description:
       'Curious and intelligent, Emma masters knowledge and wisdom.',
     video: '/characters/emma.mp4',
+    thumbnail: '/characters/emma.jpeg',
     aura: 'from-cyan-300/35 via-teal-500/20 to-transparent',
     edge: 'border-cyan-400/40',
   },
@@ -41,6 +45,7 @@ const characters = [
     description:
       'Practical and reliable, James keeps everyone on track.',
     video: '/characters/james.mp4',
+    thumbnail: '/characters/james.jpeg',
     aura: 'from-slate-300/30 via-slate-500/20 to-transparent',
     edge: 'border-slate-300/30',
   },
@@ -51,6 +56,7 @@ const characters = [
     description:
       'Bold and quick to move, Alex turns momentum into advantage.',
     video: '/characters/alex.mp4',
+    thumbnail: '/characters/alex.jpeg',
     aura: 'from-pink-400/35 via-fuchsia-500/20 to-transparent',
     edge: 'border-pink-400/40',
   },
@@ -61,6 +67,7 @@ const characters = [
     description:
       'Measured and calculating, Henry sees the path before the battle starts.',
     video: '/characters/henry.mp4',
+    thumbnail: '/characters/henry.jpeg',
     aura: 'from-emerald-300/35 via-green-500/20 to-transparent',
     edge: 'border-emerald-400/40',
   },
@@ -71,6 +78,7 @@ const characters = [
     description:
       'Fast, expressive, and energetic, Zoe brings urgency to every encounter.',
     video: '/characters/zoe.mp4',
+    thumbnail: '/characters/zoe.jpeg',
     aura: 'from-amber-300/35 via-orange-500/20 to-transparent',
     edge: 'border-amber-400/40',
   },
@@ -142,7 +150,7 @@ export default function Characters() {
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     aria-label={`${activeCharacter.name} character video`}
                     disablePictureInPicture
                   />
@@ -215,16 +223,13 @@ export default function Characters() {
                 >
                   <div className={`absolute inset-0 rounded-[1.35rem] bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
                   <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg">
-                    <video
-                      src={character.video}
-                      className="h-full w-full object-cover object-top"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
+                    <Image
+                      src={character.thumbnail}
+                      alt=""
+                      fill
+                      sizes="40px"
+                      className="object-cover object-top"
                       aria-hidden="true"
-                      disablePictureInPicture
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#070c17]/55 to-transparent" />
                   </div>

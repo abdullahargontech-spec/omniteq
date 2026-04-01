@@ -17,10 +17,12 @@ export default function Header({ isVisible = true }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      const nextScrolled = window.scrollY > 20
+      setIsScrolled((current) => (current === nextScrolled ? current : nextScrolled))
     }
 
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

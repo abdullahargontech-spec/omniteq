@@ -60,6 +60,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               muted={isMuted}
               loop
               playsInline
+              preload="metadata"
               onError={() => setVideoError(true)}
               initial={false}
               animate={{

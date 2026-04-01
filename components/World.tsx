@@ -58,7 +58,6 @@ export default function World() {
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-pgfV43Cu67LSXeIeCg6vShBlX3A7Tn.png"
             alt="OmniTech World"
             fill
-            priority
             sizes="100vw"
             className="object-cover"
           />
