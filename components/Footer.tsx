@@ -34,7 +34,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="border-t border-cyan-400/12 bg-[linear-gradient(180deg,rgba(7,12,23,0.88)_0%,rgba(5,9,18,1)_100%)]">
+    <footer className="defer-render border-t border-cyan-400/12 bg-[linear-gradient(180deg,rgba(7,12,23,0.88)_0%,rgba(5,9,18,1)_100%)]">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">

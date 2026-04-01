@@ -125,7 +125,9 @@ export default function EntryOverlay({
               autoPlay
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
+              disablePictureInPicture
+              disableRemotePlayback
               className="absolute inset-0 h-full w-full object-cover transition-[filter,opacity] duration-[2000ms] ease-linear"
               style={{
                 filter: isFinaleActive ? 'blur(12px)' : 'blur(0px)',

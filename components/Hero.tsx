@@ -1,7 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
 import { Volume2, VolumeX, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -14,6 +20,8 @@ export default function Hero({ hasEntered = true }: HeroProps) {
   const [videoError, setVideoError] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const isInView = useInView(sectionRef, { amount: 0.2 })
+  const prefersReducedMotion = useReducedMotion()
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -26,18 +34,41 @@ export default function Hero({ hasEntered = true }: HeroProps) {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 1, 0.52])
 
   useEffect(() => {
-    if (!hasEntered || !videoRef.current) return
+    const video = videoRef.current
+    if (!video) return
 
-    const playVideo = async () => {
+    const syncPlayback = async () => {
+      const shouldPlay =
+        hasEntered &&
+        !videoError &&
+        isInView &&
+        !prefersReducedMotion &&
+        document.visibilityState === 'visible'
+
+      if (!shouldPlay) {
+        video.pause()
+        return
+      }
+
       try {
-        await videoRef.current?.play()
+        await video.play()
       } catch {
         // Autoplay can still be blocked by the browser if interaction context is lost.
       }
     }
 
-    playVideo()
-  }, [hasEntered])
+    const handleVisibilityChange = () => {
+      void syncPlayback()
+    }
+
+    void syncPlayback()
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+      video.pause()
+    }
+  }, [hasEntered, isInView, prefersReducedMotion, videoError])
 
   const scrollToNextSection = () => {
     document.getElementById('characters')?.scrollIntoView({ behavior: 'smooth' })
@@ -61,6 +92,8 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               loop
               playsInline
               preload="metadata"
+              disablePictureInPicture
+              disableRemotePlayback
               onError={() => setVideoError(true)}
               initial={false}
               animate={{
@@ -170,12 +203,12 @@ export default function Hero({ hasEntered = true }: HeroProps) {
             transition={{
               duration: 1.2,
               delay: hasEntered ? 1 : 0,
-              repeat: Infinity,
+              repeat: prefersReducedMotion ? 0 : Infinity,
               repeatType: 'reverse',
             }}
             onClick={scrollToNextSection}
             className="group absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1.5 rounded-full border border-cyan-200/18 bg-slate-950/28 px-3 py-2 text-white/72 shadow-[0_10px_24px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-all duration-300 hover:-translate-x-1/2 hover:bg-slate-950/36 hover:text-white"
-            >
+          >
             <span className="text-[11px] font-medium tracking-[0.12em] text-slate-300/65 transition-colors group-hover:text-slate-100">
               Scroll to explore
             </span>

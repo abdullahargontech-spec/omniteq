@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
 const characters = [
@@ -86,22 +86,32 @@ const characters = [
 
 const AUTOPLAY_MS = 10000
 export default function Characters() {
+  const sectionRef = useRef<HTMLElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const isInView = useInView(sectionRef, {
+    amount: 0.2,
+    margin: '240px 0px 240px 0px',
+  })
+  const prefersReducedMotion = useReducedMotion()
+  const shouldRenderVideo = isInView && !prefersReducedMotion
 
   useEffect(() => {
+    if (!shouldRenderVideo) return
+
     const timer = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % characters.length)
     }, AUTOPLAY_MS)
 
     return () => window.clearInterval(timer)
-  }, [])
+  }, [shouldRenderVideo])
 
   const activeCharacter = characters[activeIndex]
 
   return (
     <section
+      ref={sectionRef}
       id="characters"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-18"
+      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-18"
     >
       <div className="mx-auto max-w-[90rem]">
         <motion.div
@@ -139,21 +149,34 @@ export default function Characters() {
               className="relative"
             >
               <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-br ${activeCharacter.aura} opacity-95 blur-2xl`} />
-              <div className="relative overflow-hidden rounded-[2.5rem]">
+              <div className="media-shell relative overflow-hidden rounded-[2.5rem]">
                 <div className={`absolute inset-0 bg-gradient-to-b ${activeCharacter.aura}`} />
                 <div className="relative h-[23rem] sm:h-[28rem] lg:h-[31rem]">
-                  <video
-                    key={activeCharacter.id}
-                    src={activeCharacter.video}
-                    className="h-full w-full object-cover object-top"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label={`${activeCharacter.name} character video`}
-                    disablePictureInPicture
-                  />
+                  {shouldRenderVideo ? (
+                    <video
+                      key={activeCharacter.id}
+                      src={activeCharacter.video}
+                      poster={activeCharacter.thumbnail}
+                      className="h-full w-full object-cover object-top"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="none"
+                      aria-label={`${activeCharacter.name} character video`}
+                      disablePictureInPicture
+                      disableRemotePlayback
+                    />
+                  ) : (
+                    <Image
+                      key={activeCharacter.id}
+                      src={activeCharacter.thumbnail}
+                      alt={`${activeCharacter.name} portrait`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 48rem"
+                      className="object-cover object-top"
+                    />
+                  )}
                 </div>
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.01)_18%,rgba(0,0,0,0)_45%)]" />
                 <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#070c17] via-[#070c17]/72 to-transparent sm:w-28" />
@@ -215,6 +238,7 @@ export default function Characters() {
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Show ${character.name}`}
+                  aria-pressed={index === activeIndex}
                   className={`group relative flex cursor-pointer items-center gap-2.5 overflow-hidden rounded-[1.35rem] border px-3 py-2.5 text-left font-black transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[1.1rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.05))] ${
                     index === activeIndex
                       ? 'border-lime-200/70 bg-[linear-gradient(180deg,#b6ff47_0%,#7de828_45%,#49b913_100%)] text-[#0b2204] shadow-[inset_0_-2px_0_rgba(44,106,13,0.82),0_12px_24px_rgba(73,185,19,0.24)]'

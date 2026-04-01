@@ -58,7 +58,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(2,167,221,0.14),_transparent_26%),radial-gradient(circle_at_92%_8%,_rgba(143,97,255,0.12),_transparent_18%),linear-gradient(180deg,rgba(7,12,23,1)_0%,rgba(8,12,22,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(2,167,221,0.14),_transparent_26%),radial-gradient(circle_at_92%_8%,_rgba(143,97,255,0.12),_transparent_18%),linear-gradient(180deg,rgba(7,12,23,1)_0%,rgba(8,12,22,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div

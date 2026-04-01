@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function CallToAction() {
   return (
-    <section className="relative bg-card/30 px-4 py-20 sm:px-6 lg:px-8">
+    <section className="defer-render relative bg-card/30 px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,66 +17,57 @@ export default function CallToAction() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,167,221,0.22),transparent_38%)]" />
           <div className="relative">
-          {/* Decorative Element */}
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-            }}
-            className="mb-6 inline-block"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/14">
-              <div className="h-8 w-8 animate-pulse rounded-full bg-[linear-gradient(135deg,#02A7DD_0%,#015FBF_100%)] shadow-[0_0_30px_rgba(2,167,221,0.35)]" />
+            {/* Decorative Element */}
+            <div className="animate-float-slow mb-6 inline-block">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/14">
+                <div className="h-8 w-8 animate-pulse rounded-full bg-[linear-gradient(135deg,#02A7DD_0%,#015FBF_100%)] shadow-[0_0_30px_rgba(2,167,221,0.35)]" />
+              </div>
             </div>
-          </motion.div>
 
-          {/* Main Headline */}
-          <h2 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Your English Journey
-            <br />
-            <span className="bg-[linear-gradient(135deg,#ffd659_0%,#02A7DD_54%,#015FBF_100%)] bg-clip-text text-transparent">Starts Inside the Game</span>
-          </h2>
+            {/* Main Headline */}
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Your English Journey
+              <br />
+              <span className="bg-[linear-gradient(135deg,#ffd659_0%,#02A7DD_54%,#015FBF_100%)] bg-clip-text text-transparent">Starts Inside the Game</span>
+            </h2>
 
-          {/* Subheading */}
-          <p className="mx-auto mb-8 max-w-2xl text-lg font-medium text-slate-300">
-            Stop learning English like it&apos;s a chore. Play your way to fluency with OmniTech where every mission teaches, every conversation connects, and every victory is real.
-          </p>
+            {/* Subheading */}
+            <p className="mx-auto mb-8 max-w-2xl text-lg font-medium text-slate-300">
+              Stop learning English like it&apos;s a chore. Play your way to fluency with OmniTech where every mission teaches, every conversation connects, and every victory is real.
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button
-              size="lg"
-              className="group px-8 py-6 text-base"
-            >
-              Enter OmniTech Now
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-6 text-base text-cyan-100"
-            >
-              Join Our Community
-            </Button>
-          </div>
-
-          {/* Social Proof */}
-          <div className="flex flex-col items-center justify-center gap-8 text-sm text-slate-300 sm:flex-row">
-            <div>
-              <span className="text-primary font-bold">10K+</span> Players Testing
+            {/* CTA Buttons */}
+            <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="lg"
+                className="group px-8 py-6 text-base"
+              >
+                Enter OmniTech Now
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-base text-cyan-100"
+              >
+                Join Our Community
+              </Button>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-border" />
-            <div>
-              <span className="text-primary font-bold">Rated 4.8/5</span> by Testers
+
+            {/* Social Proof */}
+            <div className="flex flex-col items-center justify-center gap-8 text-sm text-slate-300 sm:flex-row">
+              <div>
+                <span className="text-primary font-bold">10K+</span> Players Testing
+              </div>
+              <div className="hidden h-4 w-px bg-border sm:block" />
+              <div>
+                <span className="text-primary font-bold">Rated 4.8/5</span> by Testers
+              </div>
+              <div className="hidden h-4 w-px bg-border sm:block" />
+              <div>
+                <span className="text-primary font-bold">50+</span> Languages
+              </div>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-border" />
-            <div>
-              <span className="text-primary font-bold">50+</span> Languages
-            </div>
-          </div>
           </div>
         </motion.div>
       </div>

@@ -133,6 +133,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-background text-foreground;
     background-image:
@@ -175,6 +180,15 @@
     text-shadow: 0 0 16px rgba(2, 167, 221, 0.28);
   }
 
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 960px;
+  }
+
+  .media-shell {
+    contain: layout paint style;
+  }
+
   @keyframes blob {
     0%, 100% {
       transform: translate(0, 0) scale(1);
@@ -187,8 +201,21 @@
     }
   }
 
+  @keyframes float-y {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   .animate-blob {
     animation: blob 7s infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-y 3s ease-in-out infinite;
   }
 
   .animation-delay-2000 {
@@ -197,6 +224,18 @@
 
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .animate-blob,
+    .animate-float-slow,
+    .animate-pulse {
+      animation: none !important;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
