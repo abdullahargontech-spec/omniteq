@@ -215,10 +215,10 @@ export default function Characters() {
                   type="button"
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Show ${character.name}`}
-                  className={`group relative flex items-center gap-2.5 overflow-hidden rounded-[1.35rem] border px-3 py-2.5 text-left font-black transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[1.1rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.05))] ${
+                  className={`group relative flex cursor-pointer items-center gap-2.5 overflow-hidden rounded-[1.35rem] border px-3 py-2.5 text-left font-black transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[1.1rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.05))] ${
                     index === activeIndex
                       ? 'border-lime-200/70 bg-[linear-gradient(180deg,#b6ff47_0%,#7de828_45%,#49b913_100%)] text-[#0b2204] shadow-[inset_0_-2px_0_rgba(44,106,13,0.82),0_12px_24px_rgba(73,185,19,0.24)]'
-                      : 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(24,50,79,0.92)_0%,rgba(9,23,40,0.96)_100%)] text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_10px_20px_rgba(1,95,191,0.18)] hover:-translate-y-0.5 hover:brightness-110'
+                      : 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(24,50,79,0.92)_0%,rgba(9,23,40,0.96)_100%)] text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_10px_20px_rgba(1,95,191,0.18)] hover:-translate-y-0.5 hover:border-cyan-200/55 hover:shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_16px_28px_rgba(1,95,191,0.26)] hover:brightness-110'
                   }`}
                 >
                   <div className={`absolute inset-0 rounded-[1.35rem] bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
@@ -228,7 +228,7 @@ export default function Characters() {
                       alt=""
                       fill
                       sizes="40px"
-                      className="object-cover object-top"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
                       aria-hidden="true"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#070c17]/55 to-transparent" />

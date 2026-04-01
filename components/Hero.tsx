@@ -165,21 +165,21 @@ export default function Hero({ hasEntered = true }: HeroProps) {
             initial={false}
             animate={{
               opacity: hasEntered ? 1 : 0,
-              y: hasEntered ? 0 : -10,
+              y: hasEntered ? 0 : -6,
             }}
             transition={{
-              duration: 0.8,
+              duration: 1.2,
               delay: hasEntered ? 1 : 0,
               repeat: Infinity,
               repeatType: 'reverse',
             }}
             onClick={scrollToNextSection}
-            className="group absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 rounded-[1.1rem] border border-cyan-300/40 bg-[linear-gradient(180deg,rgba(24,50,79,0.96)_0%,rgba(9,23,40,0.98)_100%)] px-4 py-3 text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_12px_24px_rgba(1,95,191,0.18)] backdrop-blur-md transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[38%] before:rounded-[0.9rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.03))] hover:-translate-x-1/2 hover:-translate-y-0.5 hover:brightness-110"
+            className="group absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1.5 rounded-full border border-cyan-200/18 bg-slate-950/28 px-3 py-2 text-white/72 shadow-[0_10px_24px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-all duration-300 hover:-translate-x-1/2 hover:bg-slate-950/36 hover:text-white"
             >
-            <span className="text-xs font-medium tracking-[0.08em] text-slate-300/75 transition-colors group-hover:text-cyan-100">
+            <span className="text-[11px] font-medium tracking-[0.12em] text-slate-300/65 transition-colors group-hover:text-slate-100">
               Scroll to explore
             </span>
-            <ChevronDown className="h-5 w-5 text-primary transition-transform group-hover:translate-y-1" />
+            <ChevronDown className="h-4 w-4 text-cyan-200/70 transition-transform duration-300 group-hover:translate-y-0.5 group-hover:text-cyan-100" />
           </motion.button>
         </motion.div>
       </div>
