@@ -52,7 +52,7 @@ export default function World() {
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div
           style={{ width, scale, borderRadius }}
-          className="relative h-screen overflow-hidden border border-white/10 bg-black shadow-[0_25px_100px_rgba(0,0,0,0.5)]"
+          className="relative h-screen overflow-hidden border border-cyan-400/15 bg-black shadow-[0_28px_120px_rgba(0,0,0,0.48),0_0_40px_rgba(2,167,221,0.12)]"
         >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-pgfV43Cu67LSXeIeCg6vShBlX3A7Tn.png"
@@ -65,14 +65,14 @@ export default function World() {
 
           <motion.div
             style={{ opacity: overlayOpacity }}
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.22)_35%,rgba(0,0,0,0.55)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,167,221,0.22),transparent_35%),linear-gradient(180deg,rgba(4,10,22,0.76)_0%,rgba(4,10,22,0.2)_35%,rgba(4,10,22,0.62)_100%)]"
           />
 
           <motion.div
             style={{ y: contentY }}
             className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 sm:pb-14"
           >
-            <div className="max-w-xl rounded-[1.75rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
+            <div className="game-panel max-w-xl rounded-[1.75rem] p-6">
               <div className="mb-3 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
                 Living World
               </div>
@@ -96,12 +96,12 @@ export default function World() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 gap-6 sm:grid-cols-4"
+              className="grid grid-cols-2 gap-6 sm:grid-cols-4"
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-white/10 bg-card/70 p-6 text-center shadow-[0_18px_45px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-colors hover:border-primary/40"
+              className="game-panel-soft rounded-2xl p-6 text-center transition-colors hover:border-cyan-300/30"
             >
               <div className="mb-2 text-3xl font-bold text-primary">
                 {stat.value}

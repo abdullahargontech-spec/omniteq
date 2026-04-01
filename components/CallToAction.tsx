@@ -6,15 +6,17 @@ import { ArrowRight } from 'lucide-react'
 
 export default function CallToAction() {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
+    <section className="relative bg-card/30 px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="game-panel relative overflow-hidden rounded-[2rem] px-6 py-10 text-center sm:px-10"
         >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,167,221,0.22),transparent_38%)]" />
+          <div className="relative">
           {/* Decorative Element */}
           <motion.div
             animate={{
@@ -26,20 +28,20 @@ export default function CallToAction() {
             }}
             className="mb-6 inline-block"
           >
-            <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full bg-primary/40 animate-pulse" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/14">
+              <div className="h-8 w-8 animate-pulse rounded-full bg-[linear-gradient(135deg,#02A7DD_0%,#015FBF_100%)] shadow-[0_0_30px_rgba(2,167,221,0.35)]" />
             </div>
           </motion.div>
 
           {/* Main Headline */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Your English Journey
             <br />
-            <span className="text-primary">Starts Inside the Game</span>
+            <span className="bg-[linear-gradient(135deg,#ffd659_0%,#02A7DD_54%,#015FBF_100%)] bg-clip-text text-transparent">Starts Inside the Game</span>
           </h2>
 
           {/* Subheading */}
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="mx-auto mb-8 max-w-2xl text-lg font-medium text-slate-300">
             Stop learning English like it&apos;s a chore. Play your way to fluency with OmniTech where every mission teaches, every conversation connects, and every victory is real.
           </p>
 
@@ -47,7 +49,7 @@ export default function CallToAction() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-lg font-semibold text-base shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all group"
+              className="group px-8 py-6 text-base"
             >
               Enter OmniTech Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -55,14 +57,14 @@ export default function CallToAction() {
             <Button
               variant="outline"
               size="lg"
-              className="border-primary/50 text-primary hover:bg-primary/10 px-8 py-6 rounded-lg font-semibold text-base"
+              className="px-8 py-6 text-base text-cyan-100"
             >
               Join Our Community
             </Button>
           </div>
 
           {/* Social Proof */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-gray-400">
+          <div className="flex flex-col items-center justify-center gap-8 text-sm text-slate-300 sm:flex-row">
             <div>
               <span className="text-primary font-bold">10K+</span> Players Testing
             </div>
@@ -75,12 +77,13 @@ export default function CallToAction() {
               <span className="text-primary font-bold">50+</span> Languages
             </div>
           </div>
+          </div>
         </motion.div>
       </div>
 
       {/* Animated Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl -z-10 animate-blob" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl -z-10 animate-blob animation-delay-2000" />
+      <div className="absolute top-0 left-0 h-96 w-96 animate-blob rounded-full bg-cyan-400/10 blur-3xl filter -z-10" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 animate-blob rounded-full bg-violet-400/10 blur-3xl filter -z-10 animation-delay-2000" />
     </section>
   )
 }

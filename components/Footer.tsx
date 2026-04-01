@@ -36,23 +36,23 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-card/50 border-t border-border">
+    <footer className="border-t border-cyan-400/12 bg-[linear-gradient(180deg,rgba(7,12,23,0.88)_0%,rgba(5,9,18,1)_100%)]">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 group mb-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-lg transition-transform group-hover:scale-110">
+            <Link href="/" className="group mb-4 flex items-center gap-3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-cyan-400/18 bg-slate-950/60 p-1 transition-transform group-hover:scale-110">
                 <Image
                   src="/omnitech-logo.png"
                   alt="OmniTech logo"
                   fill
                   sizes="48px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-white">OmniTech</span>
+              <span className="text-xl font-bold tracking-[-0.03em] text-white">OmniTech</span>
             </Link>
             <p className="text-gray-400 text-sm mb-6">
               Level up your English in a living game world.
@@ -65,7 +65,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="p-2 rounded-lg bg-background hover:bg-primary/10 text-gray-400 hover:text-primary transition-all"
+                    className="rounded-xl border border-cyan-400/12 bg-slate-950/55 p-2 text-gray-400 transition-all hover:border-cyan-300/30 hover:bg-cyan-400/10 hover:text-cyan-100"
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -77,13 +77,13 @@ export default function Footer() {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-semibold text-white mb-4">{category}</h3>
+              <h3 className="mb-4 font-semibold uppercase tracking-[0.16em] text-cyan-100">{category}</h3>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-primary transition-colors text-sm"
+                      className="text-sm text-gray-400 transition-colors hover:text-cyan-100"
                     >
                       {link.label}
                     </a>

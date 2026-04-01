@@ -50,7 +50,7 @@ export default function Episodes() {
   return (
     <section
       id="episodes"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(245,199,57,0.14),_transparent_24%),linear-gradient(180deg,rgba(8,8,8,1)_0%,rgba(11,11,11,1)_100%)] py-24"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(2,167,221,0.14),_transparent_24%),radial-gradient(circle_at_18%_18%,_rgba(255,77,184,0.08),_transparent_18%),linear-gradient(180deg,rgba(8,12,22,1)_0%,rgba(7,10,18,1)_100%)] py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -83,7 +83,7 @@ export default function Episodes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: index * 0.08 }}
                 viewport={{ once: true, amount: 0.3 }}
-                className="group relative min-h-[28rem] w-[88vw] max-w-[28rem] shrink-0 snap-center overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_22px_80px_rgba(0,0,0,0.34)]"
+                className="game-panel group relative min-h-[28rem] w-[88vw] max-w-[28rem] shrink-0 snap-center overflow-hidden rounded-[2rem] p-8"
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${episode.accent}`}
@@ -114,7 +114,7 @@ export default function Episodes() {
                   </p>
 
                   <div className="mt-auto pt-10">
-                    <button className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80">
+                    <button className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-100 transition-colors hover:text-white">
                       Explore chapter
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
@@ -133,7 +133,7 @@ export default function Episodes() {
         viewport={{ once: true }}
         className="mx-auto mt-12 max-w-4xl px-4 text-center sm:px-6 lg:px-8"
       >
-        <div className="rounded-[1.5rem] border border-primary/20 bg-primary/6 px-6 py-5">
+        <div className="game-panel-soft rounded-[1.5rem] px-6 py-5">
           <p className="text-gray-300">
             Swipe on mobile or scroll horizontally on desktop to move through
             the OmniTech episode roadmap one chapter at a time.

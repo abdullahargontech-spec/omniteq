@@ -58,7 +58,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(245,199,57,0.14),_transparent_26%),linear-gradient(180deg,rgba(7,7,7,1)_0%,rgba(11,11,11,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(2,167,221,0.14),_transparent_26%),radial-gradient(circle_at_92%_8%,_rgba(143,97,255,0.12),_transparent_18%),linear-gradient(180deg,rgba(7,12,23,1)_0%,rgba(8,12,22,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
@@ -83,9 +83,9 @@ export default function Features() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.38)]"
+            className="game-panel relative overflow-hidden rounded-[2rem] p-8"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,199,57,0.18),_transparent_35%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.24),_transparent_35%)]" />
             <div className="relative">
               <div className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
                 Skill Tree
@@ -101,13 +101,13 @@ export default function Features() {
               </p>
 
               <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-black/30 p-5">
+                <div className="game-panel-soft rounded-2xl p-5">
                   <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
                     Progression
                   </div>
                   <div className="text-2xl font-bold text-white">Quest-based</div>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-black/30 p-5">
+                <div className="game-panel-soft rounded-2xl p-5">
                   <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
                     Retention
                   </div>
@@ -133,14 +133,14 @@ export default function Features() {
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   viewport={{ once: true }}
                   whileHover={{ x: 4, rotate: 0 }}
-                  className={`group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.25)] transition-transform ${tiltClass}`}
+                  className={`game-panel-soft group relative overflow-hidden rounded-[1.75rem] p-6 transition-transform ${tiltClass}`}
                 >
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${feature.accent} opacity-90`}
                   />
                   <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex gap-4">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-black/35 text-primary">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/25 bg-slate-950/50 text-primary shadow-[0_0_20px_rgba(2,167,221,0.16)]">
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>

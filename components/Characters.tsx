@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -85,9 +85,6 @@ const characters = [
 ]
 
 const AUTOPLAY_MS = 3200
-const ORBIT_RADIUS_X = 245
-const ORBIT_RADIUS_Y = 54
-
 export default function Characters() {
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -101,33 +98,10 @@ export default function Characters() {
 
   const activeCharacter = characters[activeIndex]
 
-  const orbitCharacters = useMemo(() => {
-    return characters.map((character, index) => {
-      const offset = (index - activeIndex + characters.length) % characters.length
-      const angle = (offset * (Math.PI * 2)) / characters.length
-      const x = Math.sin(angle) * ORBIT_RADIUS_X
-      const y = Math.cos(angle) * ORBIT_RADIUS_Y
-      const depth = (Math.cos(angle) + 1) / 2
-      const isActive = index === activeIndex
-
-      return {
-        ...character,
-        index,
-        isActive,
-        x,
-        y,
-        depth,
-        scale: isActive ? 1.28 : 0.7 + depth * 0.28,
-        opacity: isActive ? 1 : 0.4 + depth * 0.5,
-        zIndex: isActive ? 30 : 10 + Math.round(depth * 10),
-      }
-    })
-  }, [activeIndex])
-
   return (
     <section
       id="characters"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(245,199,57,0.16),_transparent_28%),linear-gradient(180deg,rgba(7,7,7,1)_0%,rgba(10,10,10,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
@@ -153,57 +127,48 @@ export default function Characters() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative mx-auto flex h-[28rem] w-full max-w-[42rem] items-center justify-center overflow-hidden"
+            className="relative mx-auto w-full max-w-[48rem]"
           >
-            <div className="absolute h-[18rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(255,214,69,0.14),_rgba(255,214,69,0.03)_34%,_transparent_68%)] blur-2xl" />
+            <div className="absolute left-1/2 top-14 h-[26rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,_rgba(2,167,221,0.18),_rgba(2,167,221,0.04)_40%,_transparent_72%)] blur-3xl" />
 
-            {orbitCharacters.map((character) => (
-              <motion.button
-                key={character.id}
-                type="button"
-                animate={{
-                  x: character.x,
-                  y: character.y,
-                  scale: character.scale,
-                  opacity: character.opacity,
-                }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 70,
-                  damping: 18,
-                  mass: 0.9,
-                }}
-                onClick={() => setActiveIndex(character.index)}
-                className="absolute"
-                style={{ zIndex: character.zIndex }}
-                aria-label={`Show ${character.name}`}
-              >
-                <div
-                  className={`relative overflow-hidden rounded-[1.75rem] border bg-black/65 shadow-[0_18px_40px_rgba(0,0,0,0.45)] ${character.isActive ? 'h-48 w-36 md:h-56 md:w-44' : 'h-32 w-24 md:h-40 md:w-28'} ${character.edge}`}
-                >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-b ${character.aura}`}
-                  />
+            <motion.div
+              key={activeCharacter.id}
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-br ${activeCharacter.aura} opacity-95 blur-2xl`} />
+              <div className="relative overflow-hidden rounded-[2.5rem]">
+                <div className={`absolute inset-0 bg-gradient-to-b ${activeCharacter.aura}`} />
+                <div className="relative h-[34rem] sm:h-[40rem] lg:h-[44rem]">
                   <Image
-                    src={character.image}
-                    alt={character.name}
+                    src={activeCharacter.image}
+                    alt={activeCharacter.name}
                     fill
-                    sizes="(max-width: 768px) 96px, 176px"
+                    sizes="(max-width: 1024px) 100vw, 720px"
                     className="object-cover object-top"
-                    priority={character.index < 3}
+                    priority
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-3 text-left">
-                    <div className="text-sm font-semibold text-white">
-                      {character.name}
-                    </div>
-                    <div className="text-[11px] uppercase tracking-[0.18em] text-primary/80">
-                      {character.role}
-                    </div>
-                  </div>
                 </div>
-              </motion.button>
-            ))}
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.01)_18%,rgba(0,0,0,0)_45%)]" />
+                <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#070c17] via-[#070c17]/72 to-transparent sm:w-36" />
+                <div className="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-[#070c17] via-[#070c17]/72 to-transparent sm:w-36" />
+                <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[#070c17] via-[#070c17]/86 via-38% to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#070c17]/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <div className="mb-3 inline-flex rounded-full border border-cyan-300/25 bg-slate-950/55 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-cyan-100">
+                    Featured Champion
+                  </div>
+                  <h3 className="text-4xl font-bold text-white sm:text-5xl">
+                    {activeCharacter.name}
+                  </h3>
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary/90">
+                    {activeCharacter.role}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -211,7 +176,7 @@ export default function Characters() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="relative rounded-[2rem] border border-primary/20 bg-white/[0.04] p-8 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            className="game-panel relative rounded-[2rem] p-8"
           >
             <div
               className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br ${activeCharacter.aura} opacity-80`}
@@ -229,26 +194,64 @@ export default function Characters() {
               <p className="max-w-xl text-base leading-7 text-gray-300">
                 {activeCharacter.description}
               </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {characters.map((character, index) => (
-                  <button
-                    key={character.id}
-                    type="button"
-                    onClick={() => setActiveIndex(index)}
-                    className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                      index === activeIndex
-                        ? 'border-primary bg-primary text-primary-foreground'
-                        : 'border-white/10 bg-black/30 text-gray-300 hover:border-primary/40 hover:text-white'
-                    }`}
-                  >
-                    {character.name}
-                  </button>
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="game-panel-soft mt-10 rounded-[1.75rem] p-4 sm:p-5"
+        >
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <div className="text-xs font-semibold uppercase tracking-[0.26em] text-cyan-100/80">
+              Character Roster
+            </div>
+            <div className="hidden text-xs font-medium text-slate-400 sm:block">
+              Select a champion
+            </div>
+          </div>
+
+          <div className="overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex min-w-max gap-3">
+              {characters.map((character, index) => (
+                <button
+                  key={character.id}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Show ${character.name}`}
+                  className={`group relative flex min-w-[12rem] items-center gap-3 overflow-hidden rounded-[1.25rem] border px-3 py-3 text-left transition-all duration-300 ${
+                    index === activeIndex
+                      ? 'border-cyan-300/40 bg-[linear-gradient(135deg,rgba(2,167,221,0.18)_0%,rgba(1,95,191,0.26)_100%)] shadow-[0_12px_36px_rgba(1,95,191,0.25)]'
+                      : 'border-white/10 bg-slate-950/38 hover:border-cyan-300/25 hover:bg-slate-950/60'
+                  }`}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
+                    <Image
+                      src={character.image}
+                      alt={character.name}
+                      fill
+                      sizes="48px"
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070c17]/55 to-transparent" />
+                  </div>
+                  <div className="relative min-w-0">
+                    <div className="truncate text-sm font-semibold text-white">
+                      {character.name}
+                    </div>
+                    <div className="truncate text-[11px] uppercase tracking-[0.18em] text-cyan-100/78">
+                      {character.role}
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

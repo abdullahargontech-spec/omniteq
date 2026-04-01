@@ -80,15 +80,16 @@ export default function Hero({ hasEntered = true }: HeroProps) {
 
           <motion.div
             style={{ opacity: overlayOpacity }}
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.46)_36%,rgba(0,0,0,0.76)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,167,221,0.22),transparent_30%),linear-gradient(180deg,rgba(3,8,18,0.54)_0%,rgba(6,14,29,0.36)_32%,rgba(5,10,20,0.82)_100%)]"
           />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,138,31,0.08)_0%,transparent_20%,transparent_80%,rgba(143,97,255,0.1)_100%)]" />
 
           <motion.button
             initial={false}
             animate={{ opacity: hasEntered ? 1 : 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             onClick={() => setIsMuted(!isMuted)}
-            className="absolute top-20 right-4 z-20 rounded-lg border border-white/10 bg-black/40 p-3 backdrop-blur transition-all hover:border-primary/30 hover:bg-black/60 sm:top-24 sm:right-8"
+            className="absolute top-20 right-4 z-20 rounded-xl border border-cyan-400/20 bg-slate-950/45 p-3 backdrop-blur-xl transition-all hover:border-cyan-300/40 hover:bg-slate-950/70 sm:top-24 sm:right-8"
             title={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted ? (
@@ -110,11 +111,13 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                   y: hasEntered ? 0 : 30,
                 }}
                 transition={{ duration: 0.95, delay: hasEntered ? 0.35 : 0 }}
-                className="mb-6 text-4xl leading-tight font-bold text-white sm:text-5xl lg:text-7xl"
+                className="game-text-glow mb-6 text-4xl leading-[0.96] font-extrabold text-white sm:text-5xl lg:text-7xl"
               >
                 Level Up Your English
                 <br />
-                <span className="text-primary">in a Living Game World</span>
+                <span className="bg-[linear-gradient(135deg,#ffd659_0%,#02A7DD_54%,#015FBF_100%)] bg-clip-text text-transparent">
+                  in a Living Game World
+                </span>
               </motion.h1>
 
               <motion.p
@@ -124,7 +127,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                   y: hasEntered ? 0 : 26,
                 }}
                 transition={{ duration: 0.8, delay: hasEntered ? 0.48 : 0 }}
-                className="mx-auto mb-8 max-w-2xl text-base text-gray-300 sm:text-lg"
+                className="mx-auto mb-10 max-w-2xl text-base font-medium leading-8 text-slate-200/82 sm:text-lg"
               >
                 Level up your English, level up your life. Join OmniTech, where
                 story, gameplay, and learning merge into one immersive
@@ -142,14 +145,14 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               >
                 <Button
                   size="lg"
-                  className="rounded-lg bg-primary px-8 font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/50"
+                  className="px-8"
                 >
                   Enter OmniTech
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-lg border-primary/50 px-8 font-semibold text-primary hover:bg-primary/10"
+                  className="px-8 text-cyan-100"
                 >
                   Watch Trailer
                 </Button>
@@ -170,9 +173,9 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               repeatType: 'reverse',
             }}
             onClick={scrollToNextSection}
-            className="group absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2"
-          >
-            <span className="text-xs text-gray-400 transition-colors group-hover:text-primary">
+              className="group absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full border border-cyan-400/15 bg-slate-950/25 px-4 py-3 backdrop-blur-md"
+            >
+            <span className="text-xs font-medium tracking-[0.08em] text-slate-300/75 transition-colors group-hover:text-cyan-100">
               Scroll to explore
             </span>
             <ChevronDown className="h-5 w-5 text-primary transition-transform group-hover:translate-y-1" />

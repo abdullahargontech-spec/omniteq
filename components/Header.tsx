@@ -44,7 +44,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
       transition={{ duration: 0.55, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg'
+          ? 'border-b border-cyan-400/15 bg-[#08111dcc]/95 shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl'
           : 'bg-transparent'
       }`}
     >
@@ -57,7 +57,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
               alt="OmniTech icon"
               fill
               sizes="48px"
-              className="object-contain"
+              className="object-contain drop-shadow-[0_0_24px_rgba(2,167,221,0.28)]"
             />
           </div>
         </Link>
@@ -68,7 +68,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-base font-medium text-muted-foreground hover:text-primary transition-colors lg:text-lg"
+              className="text-base font-semibold tracking-[0.03em] text-slate-200/82 transition-colors hover:text-white lg:text-lg"
             >
               {item.label}
             </a>
@@ -78,7 +78,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
         {/* CTA + Mobile Menu */}
         <div className="flex items-center gap-4">
           <Button
-            className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6"
+            className="px-6"
           >
             Enter OmniTech
           </Button>
@@ -86,7 +86,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 hover:bg-secondary rounded-lg transition-colors"
+            className="rounded-xl border border-cyan-400/15 bg-white/5 p-2 text-slate-100 transition-colors hover:bg-cyan-400/10 md:hidden"
           >
             {isMobileMenuOpen ? (
               <X className="w-5 h-5" />
@@ -98,13 +98,13 @@ export default function Header({ isVisible = true }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-card border-b border-border md:hidden">
+          <div className="absolute top-16 left-0 right-0 border-b border-cyan-400/15 bg-[#08111df2] backdrop-blur-xl md:hidden">
             <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                  className="block py-2 text-base font-semibold tracking-[0.03em] text-slate-200/82 transition-colors hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}

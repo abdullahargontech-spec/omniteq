@@ -105,7 +105,7 @@ export default function EntryOverlay({
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.35, ease: 'easeInOut' } }}
-          className="fixed inset-0 z-[120] overflow-hidden bg-black"
+          className="fixed inset-0 z-[120] overflow-hidden bg-[#050914]"
         >
           <div
             className="relative h-full w-full cursor-pointer"
@@ -138,7 +138,7 @@ export default function EntryOverlay({
               />
             </video>
 
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.12)_0%,rgba(0,0,0,0.32)_62%,rgba(0,0,0,0.58)_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(2,167,221,0.12)_0%,rgba(0,0,0,0.28)_58%,rgba(0,0,0,0.62)_100%)]" />
 
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-8">
               <div
@@ -154,7 +154,7 @@ export default function EntryOverlay({
                   width={1200}
                   height={600}
                   priority
-                  className="h-auto w-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
+                  className="h-auto w-full object-contain drop-shadow-[0_22px_56px_rgba(1,95,191,0.22)]"
                 />
               </div>
             </div>
