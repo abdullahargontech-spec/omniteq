@@ -51,7 +51,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
       <div className="sticky top-0 h-screen w-screen overflow-hidden">
         <motion.div
           style={{ scale }}
-          className="relative h-screen w-screen origin-center"
+          className="absolute inset-0 h-full w-full origin-center overflow-hidden"
         >
           {!videoError ? (
             <motion.video
@@ -103,21 +103,6 @@ export default function Hero({ hasEntered = true }: HeroProps) {
             className="relative z-10 flex h-full w-full items-center justify-center px-4 pt-16"
           >
             <div className="mx-auto max-w-4xl text-center">
-              <motion.div
-                initial={false}
-                animate={{
-                  opacity: hasEntered ? 1 : 0,
-                  y: hasEntered ? 0 : -24,
-                }}
-                transition={{ duration: 0.8, delay: hasEntered ? 0.2 : 0 }}
-                className="mb-6 inline-block"
-              >
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 backdrop-blur">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-                  <span className="text-sm font-medium text-primary">Now Playing</span>
-                </div>
-              </motion.div>
-
               <motion.h1
                 initial={false}
                 animate={{

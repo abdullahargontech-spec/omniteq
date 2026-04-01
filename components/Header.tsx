@@ -50,17 +50,16 @@ export default function Header({ isVisible = true }: HeaderProps) {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative h-10 w-10 overflow-hidden rounded-lg transition-transform group-hover:scale-110">
+        <Link href="/" className="flex items-center group">
+          <div className="relative h-12 w-12 overflow-hidden transition-transform group-hover:scale-110">
             <Image
-              src="/omnitech-logo.png"
-              alt="OmniTech logo"
+              src="/omnitech-nav-icon.png"
+              alt="OmniTech icon"
               fill
-              sizes="40px"
-              className="object-cover"
+              sizes="48px"
+              className="object-contain"
             />
           </div>
-          <span className="text-lg font-bold text-foreground hidden sm:inline">OmniTech</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -69,7 +68,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-base font-medium text-muted-foreground hover:text-primary transition-colors lg:text-lg"
             >
               {item.label}
             </a>
@@ -105,7 +104,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors py-2"
+                  className="block py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
