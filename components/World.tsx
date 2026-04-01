@@ -56,7 +56,7 @@ export default function World() {
         >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-pgfV43Cu67LSXeIeCg6vShBlX3A7Tn.png"
-            alt="OmniQuest World"
+            alt="OmniTech World"
             fill
             priority
             sizes="100vw"
@@ -80,7 +80,7 @@ export default function World() {
                 Explore a map that breathes with the story
               </h3>
               <p className="text-sm leading-7 text-gray-200 sm:text-base">
-                Vast biomes, hidden paths, and cinematic scale make OmniQuest feel
+                Vast biomes, hidden paths, and cinematic scale make OmniTech feel
                 larger than a static showcase. The section now lets the world take
                 over the viewport before handing control back to the rest of the
                 page.

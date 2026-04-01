@@ -21,7 +21,7 @@ const characters = [
     name: 'Lilly',
     role: 'The Tech Genius',
     description:
-      'Sharp-minded and tech-savvy, Lilly unlocks the secrets of OmniQuest.',
+      'Sharp-minded and tech-savvy, Lilly unlocks the secrets of OmniTech.',
     image:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lilly_PNG.jpg-fawNqozALd0PT7eSFJno425H1MI45V.jpeg',
     aura: 'from-lime-300/35 via-green-500/20 to-transparent',

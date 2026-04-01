@@ -40,7 +40,7 @@ export default function CallToAction() {
 
           {/* Subheading */}
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Stop learning English like it&apos;s a chore. Play your way to fluency with OmniQuest where every mission teaches, every conversation connects, and every victory is real.
+            Stop learning English like it&apos;s a chore. Play your way to fluency with OmniTech where every mission teaches, every conversation connects, and every victory is real.
           </p>
 
           {/* CTA Buttons */}
@@ -49,7 +49,7 @@ export default function CallToAction() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-lg font-semibold text-base shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all group"
             >
-              Enter OmniQuest Now
+              Enter OmniTech Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button

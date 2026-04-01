@@ -32,7 +32,7 @@ export default function Footer() {
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Mail, href: 'mailto:hello@omniquest.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:hello@omnitech.com', label: 'Email' },
   ]
 
   return (
@@ -45,14 +45,14 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2 group mb-4">
               <div className="relative h-12 w-12 overflow-hidden rounded-lg transition-transform group-hover:scale-110">
                 <Image
-                  src="/omniquest-logo.png"
-                  alt="OmniQuest logo"
+                  src="/omnitech-logo.png"
+                  alt="OmniTech logo"
                   fill
                   sizes="48px"
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl font-bold text-white">OmniQuest</span>
+              <span className="text-xl font-bold text-white">OmniTech</span>
             </Link>
             <p className="text-gray-400 text-sm mb-6">
               Level up your English in a living game world.
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
           <div>
-            &copy; {currentYear} OmniQuest. All rights reserved.
+            &copy; {currentYear} OmniTech. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a

@@ -70,7 +70,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               className="absolute inset-0 h-full w-full object-cover"
             >
               <source
-                src="/omniquest-entry.mp4"
+                src="/omnitech-entry.mp4"
                 type="video/mp4"
               />
             </motion.video>
@@ -141,7 +141,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                 transition={{ duration: 0.8, delay: hasEntered ? 0.48 : 0 }}
                 className="mx-auto mb-8 max-w-2xl text-base text-gray-300 sm:text-lg"
               >
-                Level up your English, level up your life. Join OmniQuest, where
+                Level up your English, level up your life. Join OmniTech, where
                 story, gameplay, and learning merge into one immersive
                 multiplayer adventure.
               </motion.p>
@@ -159,7 +159,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                   size="lg"
                   className="rounded-lg bg-primary px-8 font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/50"
                 >
-                  Enter OmniQuest
+                  Enter OmniTech
                 </Button>
                 <Button
                   variant="outline"

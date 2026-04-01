@@ -94,7 +94,7 @@ export default function Features() {
                 Built like a game loop, not a lesson plan
               </h3>
               <p className="max-w-lg text-sm leading-7 text-gray-300 sm:text-base">
-                OmniQuest works because the learning mechanics are embedded into the
+                OmniTech works because the learning mechanics are embedded into the
                 world systems. The player is not stopping to study. The player is
                 progressing through a designed experience where fluency creates
                 momentum.

@@ -53,14 +53,14 @@ export default function Header({ isVisible = true }: HeaderProps) {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="relative h-10 w-10 overflow-hidden rounded-lg transition-transform group-hover:scale-110">
             <Image
-              src="/omniquest-logo.png"
-              alt="OmniQuest logo"
+              src="/omnitech-logo.png"
+              alt="OmniTech logo"
               fill
               sizes="40px"
               className="object-cover"
             />
           </div>
-          <span className="text-lg font-bold text-foreground hidden sm:inline">OmniQuest</span>
+          <span className="text-lg font-bold text-foreground hidden sm:inline">OmniTech</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -81,7 +81,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
           <Button
             className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6"
           >
-            Enter OmniQuest
+            Enter OmniTech
           </Button>
 
           {/* Mobile Menu Toggle */}

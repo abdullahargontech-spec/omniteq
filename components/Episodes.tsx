@@ -7,7 +7,7 @@ const episodes = [
   {
     number: 1,
     title: 'The Beginning',
-    description: 'Meet the characters and discover your role in OmniQuest.',
+    description: 'Meet the characters and discover your role in OmniTech.',
     status: 'Now Available',
     statusColor: 'border-emerald-400/30 bg-emerald-500/15 text-emerald-200',
     accent: 'from-amber-300/25 via-orange-500/15 to-transparent',
@@ -39,7 +39,7 @@ const episodes = [
   {
     number: 5,
     title: 'Final Ascension',
-    description: 'Master all skills and become a legend of OmniQuest.',
+    description: 'Master all skills and become a legend of OmniTech.',
     status: 'Planned',
     statusColor: 'border-pink-400/30 bg-pink-500/15 text-pink-200',
     accent: 'from-pink-300/25 via-rose-500/15 to-transparent',
@@ -136,7 +136,7 @@ export default function Episodes() {
         <div className="rounded-[1.5rem] border border-primary/20 bg-primary/6 px-6 py-5">
           <p className="text-gray-300">
             Swipe on mobile or scroll horizontally on desktop to move through
-            the OmniQuest episode roadmap one chapter at a time.
+            the OmniTech episode roadmap one chapter at a time.
           </p>
         </div>
       </motion.div>

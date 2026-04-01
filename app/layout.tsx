@@ -15,8 +15,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'OmniQuest - Level Up Your English in a Game World',
-  description: 'Level up your English, level up your life. Join OmniQuest, a multiplayer English learning adventure where story, gameplay, and characters merge into one immersive world.',
+  title: 'OmniTech - Level Up Your English in a Game World',
+  description: 'Level up your English, level up your life. Join OmniTech, a multiplayer English learning adventure where story, gameplay, and characters merge into one immersive world.',
   generator: 'v0.app',
   icons: {
     icon: [
