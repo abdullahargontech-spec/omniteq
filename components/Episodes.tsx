@@ -1,52 +1,69 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
-const episodes = [
+const chapters = [
   {
-    number: 1,
-    title: 'The Beginning',
-    description: 'Meet the characters and discover your role in OmniTech.',
-    status: 'Now Available',
-    statusColor: 'border-emerald-400/30 bg-emerald-500/15 text-emerald-200',
-    accent: 'from-amber-300/25 via-orange-500/15 to-transparent',
+    number: '01',
+    label: 'Chapter 1',
+    title: 'First Contact',
+    teaser:
+      'The journey opens with daily life, first conversations, and the small wins that build early confidence.',
+    summary:
+      'Chapter 1 establishes the player\'s rhythm inside OmniTech. The tone is welcoming but active, focused on survival basics, daily routines, and the first moments of real communication.',
+    bullets: [
+      'Learn to move through everyday situations with less hesitation',
+      'Handle greetings, simple needs, and first social exchanges',
+      'Build confidence through repetition, clarity, and momentum',
+      'Feel the shift from observer to active participant in the world',
+    ],
+    accent: 'from-amber-300/28 via-orange-500/14 to-transparent',
+    glow: 'shadow-[0_24px_60px_rgba(255,138,31,0.12)]',
+    chip: 'border-amber-300/35 bg-amber-500/12 text-amber-100',
   },
   {
-    number: 2,
-    title: 'Rising Challenges',
-    description: 'Face harder quests and unlock new abilities and regions.',
-    status: 'Coming Soon',
-    statusColor: 'border-sky-400/30 bg-sky-500/15 text-sky-200',
-    accent: 'from-sky-300/25 via-cyan-500/15 to-transparent',
+    number: '02',
+    label: 'Chapter 2',
+    title: 'City Momentum',
+    teaser:
+      'Independence grows as the city opens up through work, transport, timing, choices, and practical problem solving.',
+    summary:
+      'Chapter 2 pushes the experience into real city life. The pace becomes more dynamic, with players balancing schedules, movement, and decisions while communication starts to feel more natural and useful.',
+    bullets: [
+      'Navigate transport, timing, and plans with more control',
+      'Handle work-like situations, tasks, and changing priorities',
+      'Make decisions with better awareness of context and consequences',
+      'Grow from guided progress into self-directed action',
+    ],
+    accent: 'from-cyan-300/28 via-sky-500/14 to-transparent',
+    glow: 'shadow-[0_24px_60px_rgba(2,167,221,0.14)]',
+    chip: 'border-cyan-300/35 bg-cyan-500/12 text-cyan-100',
   },
   {
-    number: 3,
-    title: 'Ancient Secrets',
-    description: 'Uncover the mysteries hidden within the world.',
-    status: 'In Development',
-    statusColor: 'border-violet-400/30 bg-violet-500/15 text-violet-200',
-    accent: 'from-fuchsia-300/25 via-violet-500/15 to-transparent',
-  },
-  {
-    number: 4,
-    title: 'Clash of Kingdoms',
-    description: 'Join massive multiplayer battles and shape the world.',
-    status: 'Planned',
-    statusColor: 'border-orange-400/30 bg-orange-500/15 text-orange-200',
-    accent: 'from-orange-300/25 via-amber-500/15 to-transparent',
-  },
-  {
-    number: 5,
-    title: 'Final Ascension',
-    description: 'Master all skills and become a legend of OmniTech.',
-    status: 'Planned',
-    statusColor: 'border-pink-400/30 bg-pink-500/15 text-pink-200',
-    accent: 'from-pink-300/25 via-rose-500/15 to-transparent',
+    number: '03',
+    label: 'Chapter 3',
+    title: 'Urban Mastery',
+    teaser:
+      'Full city living comes into focus through services, systems, money, housing, emergencies, and responsibility.',
+    summary:
+      'Chapter 3 is where the player feels fully embedded in urban life. The mood is sharper and more mature, centered on responsibility, systems thinking, and confident communication in higher-stakes situations.',
+    bullets: [
+      'Manage services, systems, and formal interactions with clarity',
+      'Deal with money, housing, and everyday responsibilities',
+      'Respond to urgent or unexpected situations with composure',
+      'Communicate with confidence in the real world, not just the game world',
+    ],
+    accent: 'from-violet-300/28 via-fuchsia-500/14 to-transparent',
+    glow: 'shadow-[0_24px_60px_rgba(143,97,255,0.14)]',
+    chip: 'border-violet-300/35 bg-violet-500/12 text-violet-100',
   },
 ]
 
 export default function Episodes() {
+  const [openChapter, setOpenChapter] = useState<string>('01')
+
   return (
     <section
       id="episodes"
@@ -58,88 +75,134 @@ export default function Episodes() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-14 text-center"
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
+          <div className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-100/86">
+            Chapter Progression
+          </div>
           <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
-            The Episode Arc
+            The Story Moves in Three Chapters
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
-            The roadmap now reads like a chapter rail. Users can move from one
-            episode card to the next instead of scanning a standard timeline.
+            A sharp overview of how OmniTech scales from first interactions to
+            full urban independence, without turning the landing page into a
+            long episode breakdown.
           </p>
         </motion.div>
-      </div>
 
-      <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 hidden w-24 bg-gradient-to-r from-background to-transparent lg:block" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 hidden w-24 bg-gradient-to-l from-background to-transparent lg:block" />
+        <div className="grid items-start gap-6 lg:grid-cols-3">
+          {chapters.map((chapter, index) => {
+            const isOpen = openChapter === chapter.number
 
-        <div className="overflow-x-auto pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex snap-x snap-mandatory gap-6 px-4 sm:px-6 lg:px-[max(3rem,calc((100vw-80rem)/2+1.5rem))]">
-            {episodes.map((episode, index) => (
+            return (
               <motion.article
-                key={episode.number}
+                key={chapter.number}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: index * 0.08 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="game-panel group relative min-h-[28rem] w-[88vw] max-w-[28rem] shrink-0 snap-center overflow-hidden rounded-[2rem] p-8"
+                viewport={{ once: true, amount: 0.25 }}
+                className={`game-panel group relative self-start overflow-hidden rounded-[2rem] p-6 sm:p-7 ${chapter.glow}`}
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${episode.accent}`}
+                  className={`absolute inset-0 bg-gradient-to-br ${chapter.accent} opacity-95`}
                 />
-                <div className="absolute inset-x-8 top-20 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <div className="absolute inset-x-6 top-20 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent sm:inset-x-7" />
 
                 <div className="relative flex h-full flex-col">
                   <div className="mb-8 flex items-start justify-between gap-4">
-                    <span className="text-6xl font-bold tracking-[-0.08em] text-white/10">
-                      {String(episode.number).padStart(2, '0')}
-                    </span>
-                    <span
-                      className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${episode.statusColor}`}
+                    <div>
+                      <div className="text-6xl font-bold tracking-[-0.08em] text-white/10">
+                        {chapter.number}
+                      </div>
+                      <div
+                        className={`mt-3 inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] ${chapter.chip}`}
+                      >
+                        {chapter.label}
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenChapter(isOpen ? '' : chapter.number)
+                      }
+                      aria-expanded={isOpen}
+                      aria-controls={`chapter-panel-${chapter.number}`}
+                      className="relative inline-flex cursor-pointer items-center gap-2 rounded-[1rem] border border-cyan-300/40 bg-[linear-gradient(180deg,rgba(20,34,56,0.94)_0%,rgba(8,18,32,0.98)_100%)] px-4 py-2 text-sm font-black text-cyan-100 shadow-[inset_0_-2px_0_rgba(4,10,20,0.9),0_10px_20px_rgba(0,0,0,0.24)] transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[0.8rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] hover:-translate-y-0.5 hover:scale-[1.02] hover:border-cyan-200/70 hover:text-white hover:brightness-110 hover:shadow-[inset_0_-2px_0_rgba(4,10,20,0.9),0_16px_30px_rgba(2,167,221,0.26)] active:translate-y-0 active:scale-100"
                     >
-                      {episode.status}
-                    </span>
+                      {isOpen ? 'Hide' : 'Read more'}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
                   </div>
 
-                  <div className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-                    Episode {String(episode.number).padStart(2, '0')}
+                  <div className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                    {chapter.label}
                   </div>
 
                   <h3 className="mb-4 text-3xl font-bold text-white">
-                    {episode.title}
+                    {chapter.title}
                   </h3>
-                  <p className="max-w-sm text-sm leading-7 text-gray-300 sm:text-base">
-                    {episode.description}
+
+                  <p className="max-w-md text-sm leading-7 text-slate-200/88 sm:text-base">
+                    {chapter.teaser}
                   </p>
 
-                  <div className="mt-auto pt-10">
-                    <button className="relative inline-flex items-center gap-2 rounded-[1rem] border border-yellow-200/70 bg-[linear-gradient(180deg,#ffe578_0%,#f4c63c_42%,#d59613_100%)] px-4 py-2 text-sm font-black text-[#2f1800] shadow-[inset_0_-2px_0_rgba(140,90,5,0.78),0_12px_24px_rgba(213,150,19,0.24)] transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[0.8rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.25),rgba(255,255,255,0.04))] hover:-translate-y-0.5 hover:brightness-105">
-                      Explore chapter
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen ? (
+                      <motion.div
+                        id={`chapter-panel-${chapter.number}`}
+                        key="expanded"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-6 border-t border-white/10 pt-5">
+                          <p className="mb-4 text-sm leading-7 text-slate-300 sm:text-[15px]">
+                            {chapter.summary}
+                          </p>
+
+                          <ul className="space-y-2.5">
+                            {chapter.bullets.map((bullet) => (
+                              <li
+                                key={bullet}
+                                className="flex gap-3 text-sm leading-6 text-slate-200/86"
+                              >
+                                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_10px_rgba(255,214,89,0.45)]" />
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
                 </div>
               </motion.article>
-            ))}
-          </div>
+            )
+          })}
         </div>
-      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="mx-auto mt-12 max-w-4xl px-4 text-center sm:px-6 lg:px-8"
-      >
-        <div className="game-panel-soft rounded-[1.5rem] px-6 py-5">
-          <p className="text-gray-300">
-            Swipe on mobile or scroll horizontally on desktop to move through
-            the OmniTech episode roadmap one chapter at a time.
-          </p>
-        </div>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.08 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-10 max-w-4xl"
+        >
+          <div className="game-panel-soft rounded-[1.5rem] px-6 py-5 text-center">
+            <p className="text-gray-300">
+              Three chapters. One clear progression from first contact to
+              confident city living.
+            </p>
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }

@@ -84,7 +84,7 @@ const characters = [
   },
 ]
 
-const AUTOPLAY_MS = 10000
+const AUTOPLAY_MS = 8000
 export default function Characters() {
   const sectionRef = useRef<HTMLElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
