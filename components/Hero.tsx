@@ -145,7 +145,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                   y: hasEntered ? 0 : 30,
                 }}
                 transition={{ duration: 0.95, delay: hasEntered ? 0.35 : 0 }}
-                className="game-text-glow mb-6 text-4xl leading-[0.96] font-extrabold text-white sm:text-5xl lg:text-7xl"
+                className="game-text-glow game-heading mb-6 text-4xl leading-[0.96] font-extrabold sm:text-5xl lg:text-7xl"
               >
                 Level Up Your English
                 <br />
@@ -161,7 +161,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
                   y: hasEntered ? 0 : 26,
                 }}
                 transition={{ duration: 0.8, delay: hasEntered ? 0.48 : 0 }}
-                className="mx-auto mb-10 max-w-2xl text-base font-medium leading-8 text-slate-200/82 sm:text-lg"
+                className="game-copy mx-auto mb-10 max-w-2xl text-base font-medium leading-8 sm:text-lg"
               >
                 Level up your English, level up your life. Join OmniTech, where
                 story, gameplay, and learning merge into one immersive

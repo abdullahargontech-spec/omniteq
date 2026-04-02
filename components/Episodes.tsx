@@ -77,10 +77,10 @@ export default function Episodes() {
           viewport={{ once: true }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <div className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-100/86">
+          <div className="game-kicker mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em]">
             Chapter Progression
           </div>
-          <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="game-heading mb-4 text-4xl font-bold sm:text-5xl">
             The Story Moves in Three Chapters
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
@@ -141,11 +141,11 @@ export default function Episodes() {
                     {chapter.label}
                   </div>
 
-                  <h3 className="mb-4 text-3xl font-bold text-white">
+                  <h3 className="game-heading mb-4 text-3xl font-bold">
                     {chapter.title}
                   </h3>
 
-                  <p className="max-w-md text-sm leading-7 text-slate-200/88 sm:text-base">
+                  <p className="game-copy max-w-md text-sm leading-7 sm:text-base">
                     {chapter.teaser}
                   </p>
 
@@ -161,7 +161,7 @@ export default function Episodes() {
                         className="overflow-hidden"
                       >
                         <div className="mt-6 border-t border-white/10 pt-5">
-                          <p className="mb-4 text-sm leading-7 text-slate-300 sm:text-[15px]">
+                          <p className="game-copy-soft mb-4 text-sm leading-7 sm:text-[15px]">
                             {chapter.summary}
                           </p>
 
@@ -169,7 +169,7 @@ export default function Episodes() {
                             {chapter.bullets.map((bullet) => (
                               <li
                                 key={bullet}
-                                className="flex gap-3 text-sm leading-6 text-slate-200/86"
+                                className="game-copy flex gap-3 text-sm leading-6"
                               >
                                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_10px_rgba(255,214,89,0.45)]" />
                                 <span>{bullet}</span>
@@ -194,7 +194,7 @@ export default function Episodes() {
           className="mx-auto mt-10 max-w-4xl"
         >
           <div className="game-panel-soft rounded-[1.5rem] px-6 py-5 text-center">
-            <p className="text-gray-300">
+            <p className="game-copy">
               Three chapters. One clear progression from first contact to
               confident city living.
             </p>

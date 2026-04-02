@@ -50,6 +50,10 @@
   --game-glass: rgba(10, 18, 31, 0.46);
   --game-gradient: linear-gradient(135deg, #02A7DD 0%, #015FBF 100%);
   --game-glow: 0 0 0 1px rgba(2, 167, 221, 0.24), 0 18px 60px rgba(1, 95, 191, 0.28), 0 0 36px rgba(2, 167, 221, 0.2);
+  --game-text-strong: #f8fcff;
+  --game-text-body: #d9e9f8;
+  --game-text-muted: #c2d4e8;
+  --game-text-accent: #d6f5ff;
 }
 
 .dark {
@@ -179,6 +183,24 @@
 
   .game-text-glow {
     text-shadow: 0 0 16px rgba(2, 167, 221, 0.28);
+  }
+
+  .game-heading {
+    color: var(--game-text-strong);
+    text-shadow: 0 2px 16px rgba(2, 167, 221, 0.22);
+  }
+
+  .game-copy {
+    color: var(--game-text-body);
+  }
+
+  .game-copy-soft {
+    color: var(--game-text-muted);
+  }
+
+  .game-kicker {
+    color: var(--game-text-accent);
+    text-shadow: 0 0 10px rgba(2, 167, 221, 0.2);
   }
 
   .defer-render {

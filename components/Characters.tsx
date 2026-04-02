@@ -121,7 +121,7 @@ export default function Characters() {
           viewport={{ once: true }}
           className="mb-10 text-center lg:mb-12"
         >
-          <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="game-heading mb-4 text-4xl font-bold sm:text-5xl">
             Meet the Champions
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
@@ -199,13 +199,13 @@ export default function Characters() {
               <div className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
                 Spotlight Character
               </div>
-              <h3 className="mb-2 text-3xl font-bold text-white lg:text-4xl">
+              <h3 className="game-heading mb-2 text-3xl font-bold lg:text-4xl">
                 {activeCharacter.name}
               </h3>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary/85 sm:text-sm">
                 {activeCharacter.role}
               </p>
-              <p className="max-w-xl text-sm leading-6 text-gray-300 sm:text-base sm:leading-7">
+              <p className="game-copy max-w-xl text-sm leading-6 sm:text-base sm:leading-7">
                 {activeCharacter.description}
               </p>
             </div>
@@ -220,10 +220,10 @@ export default function Characters() {
           className="game-panel-soft mt-6 rounded-[1.5rem] p-3 sm:mt-7 sm:p-4"
         >
           <div className="mb-3 flex items-center justify-between gap-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.26em] text-cyan-100/80">
+            <div className="game-kicker text-xs font-semibold uppercase tracking-[0.26em]">
               Character Roster
             </div>
-            <div className="hidden text-xs font-medium text-slate-400 sm:block">
+            <div className="game-copy-soft hidden text-xs font-medium sm:block">
               Select a champion
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function Characters() {
                   className={`group relative flex cursor-pointer items-center gap-2.5 overflow-hidden rounded-[1.35rem] border px-3 py-2.5 text-left font-black transition-all duration-200 before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[2px] before:h-[40%] before:rounded-[1.1rem] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.05))] ${
                     index === activeIndex
                       ? 'border-lime-200/70 bg-[linear-gradient(180deg,#b6ff47_0%,#7de828_45%,#49b913_100%)] text-[#0b2204] shadow-[inset_0_-2px_0_rgba(44,106,13,0.82),0_12px_24px_rgba(73,185,19,0.24)]'
-                      : 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(24,50,79,0.92)_0%,rgba(9,23,40,0.96)_100%)] text-white shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_10px_20px_rgba(1,95,191,0.18)] hover:-translate-y-0.5 hover:border-cyan-200/55 hover:shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_16px_28px_rgba(1,95,191,0.26)] hover:brightness-110'
+                      : 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(24,50,79,0.92)_0%,rgba(9,23,40,0.96)_100%)] game-heading shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_10px_20px_rgba(1,95,191,0.18)] hover:-translate-y-0.5 hover:border-cyan-200/55 hover:shadow-[inset_0_-2px_0_rgba(4,74,130,0.72),0_16px_28px_rgba(1,95,191,0.26)] hover:brightness-110'
                   }`}
                 >
                   <div className={`absolute inset-0 rounded-[1.35rem] bg-gradient-to-r ${character.aura} ${index === activeIndex ? 'opacity-95' : 'opacity-55'}`} />
@@ -259,7 +259,7 @@ export default function Characters() {
                     <div className="truncate text-sm">
                       {character.name}
                     </div>
-                    <div className={`truncate text-[10px] uppercase tracking-[0.16em] ${index === activeIndex ? 'text-[#214b08]' : 'text-cyan-100/78'}`}>
+                    <div className={`truncate text-[10px] uppercase tracking-[0.16em] ${index === activeIndex ? 'text-[#214b08]' : 'game-kicker'}`}>
                       {character.role}
                     </div>
                   </div>

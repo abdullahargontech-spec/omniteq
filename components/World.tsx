@@ -38,7 +38,7 @@ export default function World() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="game-heading mb-4 text-4xl font-bold sm:text-5xl">
             A World Awaits
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
@@ -70,13 +70,13 @@ export default function World() {
             className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 sm:pb-14"
           >
             <div className="max-w-2xl">
-              <div className="mb-4 inline-flex rounded-full border border-cyan-300/35 bg-slate-950/45 px-3 py-1 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100">
+              <div className="game-kicker mb-4 inline-flex rounded-full border border-cyan-300/35 bg-slate-950/45 px-3 py-1 text-sm font-semibold uppercase tracking-[0.28em]">
                 Living World
               </div>
-              <h3 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+              <h3 className="game-heading mb-4 text-4xl font-bold sm:text-5xl">
                 Explore a map that breathes with the story
               </h3>
-              <p className="max-w-2xl text-base font-medium leading-8 text-slate-100 sm:text-lg sm:leading-9">
+              <p className="game-copy max-w-2xl text-base font-medium leading-8 sm:text-lg sm:leading-9">
                 Vast biomes, hidden paths, and cinematic scale make OmniTech feel
                 larger than a static showcase. The section now lets the world take
                 over the viewport before handing control back to the rest of the
@@ -100,10 +100,10 @@ export default function World() {
               key={stat.label}
               className="rounded-2xl border border-cyan-300/18 bg-slate-950/35 p-5 text-center backdrop-blur-sm transition-colors hover:border-cyan-300/30"
             >
-              <div className="mb-1 text-4xl font-black text-white sm:text-[2.6rem]">
+              <div className="game-heading mb-1 text-4xl font-black sm:text-[2.6rem]">
                 {stat.value}
               </div>
-              <div className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100/86">
+              <div className="game-kicker text-sm font-semibold uppercase tracking-[0.16em]">
                 {stat.label}
               </div>
             </div>

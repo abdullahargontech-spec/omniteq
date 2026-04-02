@@ -25,14 +25,14 @@ export default function CallToAction() {
             </div>
 
             {/* Main Headline */}
-            <h2 className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h2 className="game-heading mb-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               Your English Journey
               <br />
               <span className="bg-[linear-gradient(135deg,#ffd659_0%,#02A7DD_54%,#015FBF_100%)] bg-clip-text text-transparent">Starts Inside the Game</span>
             </h2>
 
             {/* Subheading */}
-            <p className="mx-auto mb-8 max-w-2xl text-lg font-medium text-slate-300">
+            <p className="game-copy mx-auto mb-8 max-w-2xl text-lg font-medium">
               Stop learning English like it&apos;s a chore. Play your way to fluency with OmniTech where every mission teaches, every conversation connects, and every victory is real.
             </p>
 
@@ -55,7 +55,7 @@ export default function CallToAction() {
             </div>
 
             {/* Social Proof */}
-            <div className="flex flex-col items-center justify-center gap-8 text-sm text-slate-300 sm:flex-row">
+            <div className="game-copy flex flex-col items-center justify-center gap-8 text-sm sm:flex-row">
               <div>
                 <span className="text-primary font-bold">10K+</span> Players Testing
               </div>

@@ -50,9 +50,9 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold tracking-[-0.03em] text-white">OmniTech</span>
+              <span className="game-heading text-xl font-bold tracking-[-0.03em]">OmniTech</span>
             </Link>
-            <p className="text-gray-400 text-sm mb-6">
+            <p className="game-copy-soft mb-6 text-sm">
               Level up your English in a living game world.
             </p>
             <div className="flex gap-4">
@@ -63,7 +63,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="rounded-xl border border-cyan-400/12 bg-slate-950/55 p-2 text-gray-400 transition-all hover:border-cyan-300/30 hover:bg-cyan-400/10 hover:text-cyan-100"
+                    className="game-copy-soft rounded-xl border border-cyan-400/12 bg-slate-950/55 p-2 transition-all hover:border-cyan-300/30 hover:bg-cyan-400/10 hover:text-cyan-100"
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -75,13 +75,13 @@ export default function Footer() {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="mb-4 font-semibold uppercase tracking-[0.16em] text-cyan-100">{category}</h3>
+              <h3 className="game-kicker mb-4 font-semibold uppercase tracking-[0.16em]">{category}</h3>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-gray-400 transition-colors hover:text-cyan-100"
+                      className="game-copy-soft text-sm transition-colors hover:text-cyan-100"
                     >
                       {link.label}
                     </a>
@@ -96,7 +96,7 @@ export default function Footer() {
         <div className="border-t border-border py-8" />
 
         {/* Bottom Footer */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div className="game-copy-soft flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
           <div>
             &copy; {currentYear} OmniTech. All rights reserved.
           </div>

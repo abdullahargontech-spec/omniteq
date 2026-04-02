@@ -70,7 +70,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-base font-semibold tracking-[0.03em] text-slate-200/82 transition-colors hover:text-white lg:text-lg"
+              className="game-copy text-base font-semibold tracking-[0.03em] transition-colors hover:text-white lg:text-lg"
             >
               {item.label}
             </a>
@@ -106,7 +106,7 @@ export default function Header({ isVisible = true }: HeaderProps) {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block py-2 text-base font-semibold tracking-[0.03em] text-slate-200/82 transition-colors hover:text-white"
+                  className="game-copy block py-2 text-base font-semibold tracking-[0.03em] transition-colors hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
