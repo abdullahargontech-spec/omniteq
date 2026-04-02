@@ -77,7 +77,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[180vh] overflow-clip bg-background"
+      className="relative min-h-[180vh] overflow-clip bg-transparent"
     >
       <div className="sticky top-0 h-screen w-screen overflow-hidden">
         <motion.div
@@ -109,7 +109,7 @@ export default function Hero({ hasEntered = true }: HeroProps) {
               />
             </motion.video>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-900 via-slate-950 to-black" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,#02A7DD_0%,#015FBF_100%)]" />
           )}
 
           <motion.div

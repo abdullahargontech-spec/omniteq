@@ -105,7 +105,7 @@ export default function EntryOverlay({
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.35, ease: 'easeInOut' } }}
-          className="fixed inset-0 z-[120] overflow-hidden bg-[#050914]"
+          className="fixed inset-0 z-[120] overflow-hidden bg-[linear-gradient(180deg,#02A7DD_0%,#015FBF_100%)]"
         >
           <div
             className="relative h-full w-full cursor-pointer"

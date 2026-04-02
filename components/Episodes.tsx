@@ -67,7 +67,7 @@ export default function Episodes() {
   return (
     <section
       id="episodes"
-      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(2,167,221,0.14),_transparent_24%),radial-gradient(circle_at_18%_18%,_rgba(255,77,184,0.08),_transparent_18%),linear-gradient(180deg,rgba(8,12,22,1)_0%,rgba(7,10,18,1)_100%)] py-24"
+      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(2,167,221,0.14),_transparent_24%),radial-gradient(circle_at_18%_18%,_rgba(255,77,184,0.08),_transparent_18%)] py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -84,9 +84,7 @@ export default function Episodes() {
             The Story Moves in Three Chapters
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
-            A sharp overview of how OmniTech scales from first interactions to
-            full urban independence, without turning the landing page into a
-            long episode breakdown.
+            
           </p>
         </motion.div>
 

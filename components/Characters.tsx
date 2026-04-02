@@ -111,7 +111,7 @@ export default function Characters() {
     <section
       ref={sectionRef}
       id="characters"
-      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%),linear-gradient(180deg,rgba(6,10,19,1)_0%,rgba(7,12,23,1)_100%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-18"
+      className="defer-render relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(2,167,221,0.14),_transparent_28%),radial-gradient(circle_at_78%_14%,_rgba(255,138,31,0.12),_transparent_20%)] px-4 py-16 sm:px-6 lg:px-8 lg:py-18"
     >
       <div className="mx-auto max-w-[90rem]">
         <motion.div
@@ -125,9 +125,7 @@ export default function Characters() {
             Meet the Champions
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
-            The roster now moves like a living lineup. Each champion rotates
-            into the spotlight, takes the front position, and gives the section a
-            stronger sense of momentum.
+            
           </p>
         </motion.div>
 

@@ -28,7 +28,7 @@ export default function World() {
     <section
       id="world"
       ref={sectionRef}
-      className="defer-render relative min-h-[260vh] overflow-clip bg-background"
+      className="defer-render relative min-h-[260vh] overflow-clip bg-transparent"
     >
       <div className="mx-auto max-w-4xl px-4 pt-20 text-center sm:px-6 lg:px-8">
         <motion.div
@@ -42,9 +42,7 @@ export default function World() {
             A World Awaits
           </h2>
           <p className="mx-auto max-w-2xl text-gray-400">
-            The world reveal now behaves like a cinematic scene. As the section
-            enters, the map grows into a full-page moment, then contracts again as
-            the scroll moves past it.
+            
           </p>
         </motion.div>
       </div>
@@ -52,7 +50,7 @@ export default function World() {
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div
           style={{ width, scale, borderRadius }}
-          className="media-shell relative h-screen overflow-hidden border border-cyan-400/15 bg-black shadow-[0_28px_120px_rgba(0,0,0,0.48),0_0_40px_rgba(2,167,221,0.12)]"
+          className="media-shell relative h-screen overflow-hidden border border-cyan-400/15 bg-[linear-gradient(180deg,#02A7DD_0%,#015FBF_100%)] shadow-[0_28px_120px_rgba(0,0,0,0.48),0_0_40px_rgba(2,167,221,0.12)]"
         >
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-pgfV43Cu67LSXeIeCg6vShBlX3A7Tn.png"

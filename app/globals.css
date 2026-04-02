@@ -13,8 +13,8 @@
   --popover-foreground: oklch(0.97 0.01 260);
 
   /* OmniTech game UI system */
-  --primary: oklch(0.87 0.19 91);
-  --primary-foreground: oklch(0.1 0.015 255);
+  --primary: #FFFC11;
+  --primary-foreground: #1a1700;
   --secondary: oklch(0.23 0.025 254);
   --secondary-foreground: oklch(0.96 0.01 260);
   --muted: oklch(0.24 0.02 255);
@@ -60,8 +60,8 @@
   --card-foreground: oklch(0.97 0.01 260);
   --popover: oklch(0.145 0.018 258);
   --popover-foreground: oklch(0.97 0.01 260);
-  --primary: oklch(0.87 0.19 91);
-  --primary-foreground: oklch(0.1 0.015 255);
+  --primary: #FFFC11;
+  --primary-foreground: #1a1700;
   --secondary: oklch(0.23 0.025 254);
   --secondary-foreground: oklch(0.96 0.01 260);
   --muted: oklch(0.24 0.02 255);
@@ -136,14 +136,15 @@
 
   html {
     scroll-padding-top: 5rem;
+    background: linear-gradient(180deg, #02A7DD 0%, #015FBF 100%);
   }
 
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(circle at top, rgba(2, 167, 221, 0.14), transparent 28%),
-      radial-gradient(circle at 85% 18%, rgba(255, 138, 31, 0.1), transparent 22%),
-      linear-gradient(180deg, #060b14 0%, #09111d 46%, #060912 100%);
+    background: linear-gradient(180deg, #02A7DD 0%, #015FBF 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 

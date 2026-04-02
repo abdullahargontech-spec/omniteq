@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border-cyan-300/65 bg-[linear-gradient(180deg,#1fc3f0_0%,#02A7DD_34%,#015FBF_100%)] shadow-[inset_0_-3px_0_rgba(1,64,125,0.85),0_14px_28px_rgba(1,95,191,0.34)] hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[inset_0_-3px_0_rgba(1,64,125,0.85),0_18px_32px_rgba(1,95,191,0.4),0_0_24px_rgba(2,167,221,0.18)]',
+          'border-[#fffda3]/85 bg-[linear-gradient(180deg,#fffda3_0%,#FFFC11_52%,#d6cb00_100%)] text-[#1a1700] shadow-[inset_0_-3px_0_rgba(102,96,0,0.78),0_14px_28px_rgba(255,252,17,0.3)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[inset_0_-3px_0_rgba(102,96,0,0.78),0_18px_32px_rgba(255,252,17,0.38),0_0_24px_rgba(255,252,17,0.2)]',
         secondary:
           'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(25,39,61,0.96)_0%,rgba(12,22,38,0.98)_100%)] text-cyan-100 shadow-[inset_0_-3px_0_rgba(4,10,20,0.9),0_12px_24px_rgba(0,0,0,0.22)] hover:-translate-y-0.5 hover:border-cyan-300/55 hover:bg-[linear-gradient(180deg,rgba(30,50,78,0.96)_0%,rgba(12,22,38,0.98)_100%)] hover:text-white',
         success:

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="bg-background text-foreground">
+    <main className="text-foreground">
       <EntryExperience />
       <Characters />
       <World />

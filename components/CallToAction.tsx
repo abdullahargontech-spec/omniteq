@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function CallToAction() {
   return (
-    <section className="defer-render relative bg-card/30 px-4 py-20 sm:px-6 lg:px-8">
+    <section className="defer-render relative bg-transparent px-4 py-20 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
